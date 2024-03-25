@@ -1,0 +1,32 @@
+<header class="header">
+  <div class="container">
+    <div class="logo">
+      <img src="assets/images/logo.png" alt="logo">
+    </div>
+
+    <div class="content">
+      <nav>
+        <ul>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">About us</a></li>
+          <li><a href="#">Features</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="language-container">
+      <div class="current-language">
+        {{ currentLanguage }}
+        <img class="arrow" src="assets/icons/arrow-down.svg" alt="Arrow" (click)="toggleLanguages()">
+      </div>
+      <ul class="language-list" *ngIf="showLanguages">
+        <li *ngFor="let lang of languages" (click)="changeLanguage(lang)">{{ lang }}</li>
+      </ul>
+    </div>
+
+    <div class="news-">
+      <img src="assets/icons/newsletter.svg" alt="newsletter">
+    </div>
+
+  </div>
+</header>
