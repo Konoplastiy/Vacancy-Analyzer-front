@@ -1,1 +1,54 @@
+<div class="filter">
+  <div class="container">
+
+    <form class="filter-form" (ngSubmit)="applyFilters()">
+      <div class="filter-title">
+        <img class="filter-image" src="assets/icons/filter.svg" alt="filter">
+        <h3 class="title">FILTERS</h3>
+      </div>
+
+      <div class="conditional">
+        <h3 class="sub-title">Platform</h3>
+        <div class="options-container">
+          <label><input type="checkbox" name="platform" value="rabota"> Rabota.ua</label>
+          <label><input type="checkbox" name="platform" value="djinni"> Djinni.co</label>
+          <label><input type="checkbox" name="platform" value="dou"> DOU.ua</label>
+          <label><input type="checkbox" name="platform" value="work"> Work.ua</label>
+        </div>
+      </div>
+
+      <div class="conditional">
+        <h3 class="sub-title">Level of experience</h3>
+        <div class="options-container">
+          <label><input type="checkbox" name="experience" value="senior"> Senior</label>
+          <label><input type="checkbox" name="experience" value="middle"> Middle</label>
+          <label><input type="checkbox" name="experience" value="junior"> Junior</label>
+          <label><input type="checkbox" name="experience" value="trainee"> Trainee</label>
+        </div>
+      </div>
+
+      <div class="conditional salary">
+        <h3 class="sub-title">Salary</h3>
+          <label class="salary-start">From: <input type="number" name="salaryFrom"></label>
+          <label class="salary-end">To: <input type="number" name="salaryTo"></label>
+      </div>
+
+      <div class="conditional">
+        <h3 class="sub-title">Level of experience</h3>
+        <div class="options-container">
+          <label><input type="checkbox" name="english" value="elementary"> Elementary</label>
+          <label><input type="checkbox" name="english" value="pre-Intermediate"> Pre-Intermediate</label>
+          <label><input type="checkbox" name="english" value="intermediate"> Intermediate</label>
+          <label><input type="checkbox" name="english" value="upper-intermediate"> Upper-Intermediate</label>
+        </div>
+      </div>
+
+      <div class="filter-apply-btn">
+        <button type="submit">Apply</button>
+      </div>
+
+    </form>
+  </div>
+</div>
+
 

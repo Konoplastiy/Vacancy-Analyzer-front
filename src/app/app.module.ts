@@ -7,8 +7,8 @@ import {HeaderModule} from "./shared/components/header/header.module";
 import {FooterModule} from "./shared/components/footer/footer.module";
 import {HttpClientModule} from "@angular/common/http";
 import {HomeModule} from "./pages/home/components/home/home.module";
-import {FilterComponent} from './shared/components/filter/components/filter/filter.component';
 import {FilterModule} from "./shared/components/filter/filter.module";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [AppComponent],

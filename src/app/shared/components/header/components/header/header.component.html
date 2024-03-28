@@ -14,18 +14,20 @@
       </nav>
     </div>
 
-    <div class="language-container">
-      <div class="current-language">
-        {{ currentLanguage }}
-        <img class="arrow" src="assets/icons/arrow-down.svg" alt="Arrow" (click)="toggleLanguages()">
+    <div class="nav-icons">
+      <div class="language-container">
+        <div class="current-language">
+          {{ currentLanguage }}
+          <img class="arrow" src="assets/icons/arrow-down.svg" alt="Arrow" (click)="toggleLanguages()">
+        </div>
+        <ul class="language-list" *ngIf="showLanguages">
+          <li *ngFor="let lang of languages" (click)="changeLanguage(lang)">{{ lang }}</li>
+        </ul>
       </div>
-      <ul class="language-list" *ngIf="showLanguages">
-        <li *ngFor="let lang of languages" (click)="changeLanguage(lang)">{{ lang }}</li>
-      </ul>
-    </div>
 
-    <div class="news-">
-      <img src="assets/icons/newsletter.svg" alt="newsletter">
+      <div class="news-">
+        <img src="assets/icons/newsletter.svg" alt="newsletter">
+      </div>
     </div>
 
   </div>
