@@ -5,9 +5,10 @@
 
   .container {
     font-family: Montserrat, sans-serif;
+
     .filter-form {
 
-      .filter-title, .conditional, .filter-apply-btn {
+      .filter-title, .conditional, .filter-apply-btn, {
         padding: 20px;
         border-bottom: 1px solid #e1e4e7;
 
@@ -19,7 +20,7 @@
       .filter-title {
         display: flex;
         align-items: center;
-        height: 30px;
+        align-content: center;
         padding-bottom: 20px;
 
         .filter-image {
@@ -29,6 +30,7 @@
 
         .title {
           font-size: 20px;
+          margin-bottom: 0;
         }
       }
 
@@ -41,7 +43,7 @@
         .options-container {
           display: grid;
           grid-template-columns: repeat(2, 1fr);
-          grid-auto-rows: 30px; /* Увеличил высоту строки */
+          grid-auto-rows: 30px;
           font-size: 14px;
 
           label {
@@ -52,7 +54,6 @@
 
         .salary {
           display: block;
-
         }
 
         input[type="number"] {

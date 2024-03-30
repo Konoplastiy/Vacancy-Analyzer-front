@@ -1,9 +1,9 @@
 footer {
+  width: 100%;
+  margin-top: 70px;
   background-color: #ebebeb;
-  position: absolute;
-  left: 0;
   bottom: 0;
-  right: 0;
+
 
   .container {
     padding: 0 190px;
@@ -15,15 +15,16 @@ footer {
     justify-content: space-between;
     border-top: 1px solid #BCC1CA;
 
+
     .logo img {
       width: 125px;
       height: 125px;
     }
 
+
     .content {
       width: 525px;
       height: 80px;
-      padding: 60px 0 70px 0;
 
       .links {
         display: flex;
@@ -35,6 +36,7 @@ footer {
         }
       }
 
+
       .info {
         display: flex;
         justify-content: space-between;
@@ -43,10 +45,10 @@ footer {
       }
     }
 
+
     .social {
-      padding: 50px 0 120px 0;
-      width: 187px;
       display: flex;
+      width: 187px;
       justify-content: space-between;
 
 
