@@ -1,0 +1,32 @@
+.container {
+  max-width: 1120px;
+  font-family: Montserrat, sans-serif;
+
+  .search-bar {
+    border-radius: 15px;
+    align-items: center;
+    display: flex;
+    padding: 15px;
+    background-color: #F4F5F7;
+
+    .search-icon {
+      width: 24px;
+      height: 24px;
+    }
+
+    .search-input {
+      flex: 1;
+      margin-left: 10px;
+      font-size: 20px;
+      color: #171A1F;
+      border: none;
+      outline: none;
+      background-color: #F4F5F7;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+  }
+}
