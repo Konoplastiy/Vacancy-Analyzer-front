@@ -1,0 +1,116 @@
+$font-family: Montserrat, sans-serif;
+$color: #171A1F;
+$max-width: 1420px;
+
+
+.container {
+
+  h2 {
+    font-family: $font-family;
+    font-weight: bold;
+    margin-left: 40px;
+    color: $color;
+    font-size: 64px;
+    text-transform: uppercase;
+  }
+
+  .story-img, .value-img {
+    border-radius: 20px;
+  }
+
+  .title {
+    display: flex;
+    width: 100%;
+    height: 450px;
+    background: url('/assets/images/about_bg.png') center (center / cover) no-repeat;
+
+    .title-name {
+      margin: auto auto;
+      font-family: $font-family;
+      font-size: 96px;
+      font-weight: bold;
+      color: $color;
+      text-transform: uppercase;
+    }
+  }
+
+  .story {
+    display: flex;
+    align-items: center;
+    margin: 100px auto;
+    max-width: $max-width;
+    justify-content: space-between;
+
+    .story-content {
+      .story-text {
+        margin-top: 40px;
+        font-family: $font-family;
+        font-size: 20px;
+        line-height: 38px;
+      }
+    }
+  }
+
+  .team {
+    height: 800px;
+    margin: 100px auto;
+    background-color: #F5F5F5;
+    padding: 100px 0;
+
+    .team-title {
+      font-family: $font-family;
+      font-weight: bold;
+      color: $color;
+      font-size: 64px;
+      text-align: center;
+      text-transform: uppercase;
+      margin-bottom: 60px;
+    }
+
+    .card-team {
+      display: flex;
+      margin: 0 auto;
+      justify-content: space-between;
+      max-width: $max-width;
+
+      .card {
+        .card-content {
+          margin-top: 45px;
+
+          .name {
+            font-family: $font-family;
+            font-weight: bold;
+            color: $color;
+            font-size: 32px;
+            line-height: 26px;
+            text-align: center;
+          }
+
+          .role {
+            font-family: $font-family;
+            color: $color;
+            font-size: 22px;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+
+  .value {
+    display: flex;
+    align-items: center;
+    margin: 100px auto;
+    max-width: $max-width;
+    justify-content: space-between;
+
+    .value-content {
+      .value-text {
+        margin-top: 40px;
+        font-family: $font-family;
+        font-size: 20px;
+        line-height: 38px;
+      }
+    }
+  }
+}

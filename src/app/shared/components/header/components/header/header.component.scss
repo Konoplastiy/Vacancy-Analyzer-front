@@ -3,6 +3,7 @@ header {
   top: 0;
   height: 150px;
   background: #FFFFFF;
+  z-index: 9999;
 
   .container {
     padding: 0 190px;
@@ -32,6 +33,10 @@ header {
 
       li a {
         text-decoration: none;
+
+        &:hover {
+          color: #00BDD6;
+        }
       }
     }
 
@@ -82,15 +87,15 @@ header {
             cursor: pointer;
 
             &:hover {
-              background-color: #f1f1f1;
+              background-color: #ebebeb;
             }
           }
         }
       }
 
       .news- img {
-        width: 50px;
-        height: 50px;
+        width: 45px;
+        height: 45px;
       }
 
     }

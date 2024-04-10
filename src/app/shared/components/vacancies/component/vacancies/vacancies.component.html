@@ -1,0 +1,42 @@
+<div class="container">
+<!--  <form class="search-bar">-->
+<!--    <img class="search-icon" src="assets/icons/search.svg" alt="Search icon">-->
+<!--    <input type="text"-->
+<!--           placeholder="Search Anything You Want..."-->
+<!--           [formControl]="control"-->
+<!--           [matAutocomplete]="auto"-->
+<!--           class="search-input">-->
+<!--    <div class="dropdown">-->
+<!--      <mat-autocomplete #auto="matAutocomplete">-->
+<!--        <mat-option *ngFor="let language of filteredLanguages | async" [value]="language">-->
+<!--          {{ language }}-->
+<!--        </mat-option>-->
+<!--      </mat-autocomplete>-->
+<!--    </div>-->
+<!--  </form>-->
+
+  <div
+    class="search-bar-container"
+    cdkOverlayOrigin
+    #overlayPosition="cdkOverlayOrigin"
+    [ngClass]="{ 'opened mat-elevation-z2' : overlayOpen() }"
+  >
+    <button mat-icon-button>
+      <mat-icon>search</mat-icon>
+    </button>
+    <input #searchInput
+      placeholder="Search Anything You Want..."
+      (click)="overlayOpen.set(true)"
+      (keydown.enter)="search(searchInput.value)"
+    />
+  </div>
+
+  <ng-template
+    cdkConnectedOverlay
+    [cdkConnectedOverlayOrigin]="overlayPosition"
+    [cdkConnectedOverlayOpen]="overlayOpen()"
+    (overlayOutsideClick)="overlayOpen.set(false)"
+  >
+    <app-search-overlay />
+  </ng-template>
+</div>
