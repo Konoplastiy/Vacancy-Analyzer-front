@@ -1,6 +1,5 @@
 footer {
   width: 100%;
-  margin-top: 70px;
   background-color: #ebebeb;
   bottom: 0;
 
@@ -33,6 +32,9 @@ footer {
 
         a {
           text-decoration: none;
+          &:hover{
+            color: #00BDD6;
+          }
         }
       }
 

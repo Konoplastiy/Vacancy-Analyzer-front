@@ -10,6 +10,7 @@ import {HomeModule} from "./pages/home/components/home/home.module";
 import {FilterModule} from "./shared/components/filter/filter.module";
 import {VacanciesModule} from "./shared/components/vacancies/vacancies.module";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {AboutusModule} from "./pages/aboutus/components/aboutus/aboutus.module";
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     HomeModule,
     FilterModule,
     VacanciesModule,
+    AboutusModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

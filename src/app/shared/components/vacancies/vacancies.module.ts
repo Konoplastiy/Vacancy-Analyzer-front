@@ -8,10 +8,15 @@ import {MatInputModule} from "@angular/material/input";
 import {MatOptionModule} from "@angular/material/core";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatIconModule} from "@angular/material/icon";
+import {MatButtonModule} from "@angular/material/button";
+import {OverlayModule} from "@angular/cdk/overlay";
+import { SearchOverlayComponent } from './component/search-overlay/search-overlay.component';
+import {MatDividerModule} from "@angular/material/divider";
+import {MatListModule} from "@angular/material/list";
 
 
 @NgModule({
-  declarations: [VacanciesComponent],
+  declarations: [VacanciesComponent, SearchOverlayComponent],
   imports: [
     CommonModule,
     VacanciesRoutingModule,
@@ -22,7 +27,11 @@ import {MatIconModule} from "@angular/material/icon";
     MatIconModule,
     ReactiveFormsModule,
     FormsModule,
+    MatButtonModule,
+    OverlayModule,
+    MatDividerModule,
+    MatListModule
   ],
-  exports: [VacanciesComponent],
+  exports: [VacanciesComponent, SearchOverlayComponent],
 })
 export class VacanciesModule { }
