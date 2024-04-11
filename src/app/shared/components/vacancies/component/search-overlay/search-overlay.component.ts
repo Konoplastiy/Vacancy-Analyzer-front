@@ -8,6 +8,20 @@ import {SearchBarService} from "../../../../services/search-bar.service";
 })
 export class SearchOverlayComponent {
 
-  searchBarService = inject(SearchBarService);
+  constructor(private searchBarService: SearchBarService) {}
+
   recentSearches = this.searchBarService.recentSearches;
+
+  trackSearch(index: number, item: string) {
+    return index;
+  }
+
+  deleteRecentSearch(searchTerm: string) {
+    this.searchBarService.deleteRecentSearch(searchTerm);
+  }
+
+  performSearch(searchTerm: string) {
+    this.searchBarService.search(searchTerm)
+  }
+
 }
