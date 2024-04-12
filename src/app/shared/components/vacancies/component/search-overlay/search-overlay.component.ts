@@ -12,16 +12,16 @@ export class SearchOverlayComponent {
 
   recentSearches = this.searchBarService.recentSearches;
 
-  trackSearch(index: number, item: string) {
-    return index;
-  }
-
   deleteRecentSearch(searchTerm: string) {
     this.searchBarService.deleteRecentSearch(searchTerm);
   }
 
   performSearch(searchTerm: string) {
     this.searchBarService.search(searchTerm)
+  }
+
+  shouldDisplayRecentSearches() {
+    return this.recentSearches.value !== null && this.recentSearches.value.length > 0;
   }
 
 }

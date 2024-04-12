@@ -20,10 +20,11 @@ export class SearchBarService {
 
   addToRecentSearches(searchTerm: string) {
     const lowerCaseTerm = searchTerm.toLowerCase();
-    const updatedSearches = [
+    let updatedSearches = [
       lowerCaseTerm,
       ...this.recentSearches.value.filter((s) => s !== lowerCaseTerm),
     ];
+    updatedSearches = updatedSearches.slice(0, 5);
     this.recentSearches.next(updatedSearches);
     window.localStorage.setItem('recentSearches', JSON.stringify(updatedSearches));
   }
@@ -31,6 +32,5 @@ export class SearchBarService {
   deleteRecentSearch(searchTerm: string) {
     const updatedSearches = this.recentSearches.value.filter(s => s !== searchTerm);
     this.recentSearches.next(updatedSearches);
-    window.localStorage.setItem('recentSearches', JSON.stringify(updatedSearches));
   }
 }
