@@ -1,42 +1,51 @@
 <div class="container">
-<!--  <form class="search-bar">-->
-<!--    <img class="search-icon" src="assets/icons/search.svg" alt="Search icon">-->
-<!--    <input type="text"-->
-<!--           placeholder="Search Anything You Want..."-->
-<!--           [formControl]="control"-->
-<!--           [matAutocomplete]="auto"-->
-<!--           class="search-input">-->
-<!--    <div class="dropdown">-->
-<!--      <mat-autocomplete #auto="matAutocomplete">-->
-<!--        <mat-option *ngFor="let language of filteredLanguages | async" [value]="language">-->
-<!--          {{ language }}-->
-<!--        </mat-option>-->
-<!--      </mat-autocomplete>-->
-<!--    </div>-->
-<!--  </form>-->
 
-  <div
-    class="search-bar-container"
-    cdkOverlayOrigin
-    #overlayPosition="cdkOverlayOrigin"
-    [ngClass]="{ 'opened mat-elevation-z2' : overlayOpen() }"
-  >
-    <button mat-icon-button>
-      <mat-icon>search</mat-icon>
-    </button>
-    <input #searchInput
-      placeholder="Search Anything You Want..."
-      (click)="overlayOpen.set(true)"
-      (keydown.enter)="search(searchInput.value)"
-    />
+  <div class="search-bar-container">
+    <div
+      class="search-bar"
+      cdkOverlayOrigin
+      #overlayPosition="cdkOverlayOrigin"
+      [ngClass]="{ 'opened mat-elevation-z2': overlayOpen | async}"
+    >
+      <button mat-icon-button>
+        <mat-icon>search</mat-icon>
+      </button>
+      <input #searchInput
+             [value]="searchTerm | async"
+             placeholder="Search Anything You Want..."
+             (click)="openOverlay()"
+             (keydown.enter)="search(searchInput.value)"
+      />
+    </div>
+
+    <ng-template
+      cdkConnectedOverlay
+      [cdkConnectedOverlayOrigin]="overlayPosition"
+      [cdkConnectedOverlayOpen]="overlayOpen | async"
+      (overlayOutsideClick)="closeOverlay()"
+    >
+      <app-search-overlay />
+    </ng-template>
   </div>
 
-  <ng-template
-    cdkConnectedOverlay
-    [cdkConnectedOverlayOrigin]="overlayPosition"
-    [cdkConnectedOverlayOpen]="overlayOpen()"
-    (overlayOutsideClick)="overlayOpen.set(false)"
-  >
-    <app-search-overlay />
-  </ng-template>
+  <div class="vacancies-container">
+    <div class="corner-text">Djinni</div>
+    <h1 class="title">Junior Java Dev</h1>
+    <p class="description">Delasport — Implementing Technological Solutions Here and Now Delasport is an iGaming Software company providing Sports Betting & Online Casino software, and turnkey B2B solutions.</p>
+    <div class="info-block">
+      <div class="company icon">Wix</div>
+      <div class="location icon">Kyiv</div>
+      <div class="date icon">11 квітня 2024</div>
+    </div>
+  </div>
+
+  <div class="pagination-container">
+    <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
+    <ng-container *ngFor="let page of getPageRange()">
+      <span *ngIf="page === -1">...</span>
+      <button *ngIf="page !== -1" (click)="goToPage(page)" [class.active]="currentPage === page">{{ page }}</button>
+    </ng-container>
+    <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+  </div>
+
 </div>

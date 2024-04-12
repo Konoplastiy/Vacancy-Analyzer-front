@@ -1,45 +1,92 @@
-import {Component, inject, OnInit} from '@angular/core';
-import {FormControl} from '@angular/forms';
-import {Observable, of} from 'rxjs';
-import {map, startWith} from 'rxjs/operators';
-import {SearchBarService} from "../../../../services/search-bar.service";
+import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {SearchBarService} from '../../../../services/search-bar.service';
 
 @Component({
   selector: 'app-vacancies',
   templateUrl: './vacancies.component.html',
   styleUrls: ['./vacancies.component.scss']
 })
-export class VacanciesComponent implements OnInit {
-  // control = new FormControl('');
-  // languages: string[] = ['JavaScript', 'Python', 'Java', 'C#'];
-  // filteredLanguages: Observable<string[]> = of([]);
-  //
-  // ngOnInit() {
-  //   this.filteredLanguages = this.control.valueChanges.pipe(
-  //     startWith(''),
-  //     map(value => this._filter(value || '')),
-  //   );
-  // }
-  //
-  // private _filter(value: string): string[] {
-  //   const filterValue = this._normalizeValue(value);
-  //   return this.languages.filter(street => this._normalizeValue(street).includes(filterValue));
-  // }
-  //
-  // private _normalizeValue(value: string): string {
-  //   return value.toLowerCase().replace(/\s/g, '');
-  // }
+export class VacanciesComponent {
 
-  searchBarService = inject(SearchBarService);
+  currentPage = 1;
+  totalPages = 300; // Set a static number of total pages
+  maxPagesToShow = 5;
+  paginationEnabled = true;
+
   overlayOpen = this.searchBarService.overlayOpen;
+  searchTerm = this.searchBarService.searchTerm;
 
-  ngOnInit(): void {
+  constructor(private searchBarService: SearchBarService) {
   }
 
   search(searchTerm: string) {
     if (!searchTerm) return;
-
-    this.searchBarService.search(searchTerm)
+    this.searchBarService.search(searchTerm);
   }
 
+  openOverlay() {
+    this.searchBarService.overlayOpen.next(true);
+  }
+
+  closeOverlay() {
+    this.searchBarService.overlayOpen.next(false);
+  }
+
+  previousPage() {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+    }
+  }
+
+  nextPage() {
+    if (this.currentPage < this.totalPages) {
+      this.currentPage++;
+    }
+  }
+
+  goToPage(page: number) {
+    this.currentPage = page;
+  }
+
+  getPageRange(): number[] {
+    const pages: number[] = [];
+    const pagesToShow = Math.min(this.totalPages, this.maxPagesToShow);
+
+    if (this.totalPages <= this.maxPagesToShow) {
+      for (let i = 1; i <= this.totalPages; i++) {
+        pages.push(i);
+      }
+    } else {
+      let startPage: number;
+      let endPage: number;
+      const middlePage = Math.ceil(this.maxPagesToShow / 2);
+
+      if (this.currentPage <= middlePage) {
+        startPage = 1;
+        endPage = this.maxPagesToShow - 1;
+      } else if (this.currentPage >= this.totalPages - middlePage) {
+        startPage = this.totalPages - this.maxPagesToShow + 2;
+        endPage = this.totalPages;
+      } else {
+        startPage = this.currentPage - middlePage + 1;
+        endPage = this.currentPage + middlePage - 1;
+      }
+
+      for (let i = startPage; i <= endPage; i++) {
+        pages.push(i);
+      }
+
+      if (startPage > 1) {
+        pages.unshift(1);
+        pages.splice(1, 0, -1);
+      }
+
+      if (endPage < this.totalPages) {
+        pages.push(-1);
+        pages.push(this.totalPages);
+      }
+    }
+
+    return pages;
+  }
 }

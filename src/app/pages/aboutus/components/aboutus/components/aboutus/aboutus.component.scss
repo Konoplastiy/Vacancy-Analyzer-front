@@ -1,5 +1,5 @@
 $font-family: Montserrat, sans-serif;
-$color: #171A1F;
+$blue-gray-color: #171A1F;
 $max-width: 1420px;
 
 
@@ -9,12 +9,12 @@ $max-width: 1420px;
     font-family: $font-family;
     font-weight: bold;
     margin-left: 40px;
-    color: $color;
+    color: $blue-gray-color;
     font-size: 64px;
     text-transform: uppercase;
   }
 
-  .story-img, .value-img {
+  .story-img, .value-img, .card-img {
     border-radius: 20px;
   }
 
@@ -29,7 +29,7 @@ $max-width: 1420px;
       font-family: $font-family;
       font-size: 96px;
       font-weight: bold;
-      color: $color;
+      color: $blue-gray-color;
       text-transform: uppercase;
     }
   }
@@ -60,7 +60,7 @@ $max-width: 1420px;
     .team-title {
       font-family: $font-family;
       font-weight: bold;
-      color: $color;
+      color: $blue-gray-color;
       font-size: 64px;
       text-align: center;
       text-transform: uppercase;
@@ -80,7 +80,7 @@ $max-width: 1420px;
           .name {
             font-family: $font-family;
             font-weight: bold;
-            color: $color;
+            color: $blue-gray-color;
             font-size: 32px;
             line-height: 26px;
             text-align: center;
@@ -88,7 +88,8 @@ $max-width: 1420px;
 
           .role {
             font-family: $font-family;
-            color: $color;
+            margin-top: 13px;
+            color: $blue-gray-color;
             font-size: 22px;
             text-align: center;
           }
