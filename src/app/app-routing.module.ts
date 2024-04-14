@@ -11,7 +11,17 @@ const routes: Routes = [
     path: 'aboutus',
     loadChildren: () =>
       import('./pages/aboutus/components/aboutus/aboutus.module').then((m) => m.AboutusModule)
-  }
+  },
+  {
+    path: 'privacy',
+    loadChildren: () =>
+      import('./pages/privacy/components/privacy/privacy.module').then((m) => m.PrivacyModule)
+  },
+  {
+    path: 'terms',
+    loadChildren: () =>
+      import('./pages/terms/components/terms/terms.module').then((m) => m.TermsModule)
+  },
 ];
 
 @NgModule({

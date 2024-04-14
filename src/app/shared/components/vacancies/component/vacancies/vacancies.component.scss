@@ -31,87 +31,111 @@
     }
   }
 
-  .vacancies-container {
-    position: relative;
-    font-family: Montserrat, sans-serif;
-    padding: 20px;
-    border-radius: 10px;
-    border: solid #e7e6e6 1px;
-
-    .corner-text {
-      position: absolute;
-      top: 0;
-      right: 0;
-      font-weight: bold;
-      font-size: 16px;
-      width: 125px;
-      background-color: #08ADA7;
-      padding: 8px;
-      border-radius: 0 10px 0 10px;
-      box-shadow: -3px 3px 5px rgba(0, 0, 0, 0.2),
-                     0 3px 5px rgba(0, 0, 0, 0.2);
-    }
-
-    .title {
-      font-size: 24px;
+  .list-vacancies {
+    .vacancies-container {
+      position: relative;
       font-family: Montserrat, sans-serif;
-      font-weight: 800;
-      margin-bottom: 20px;
-    }
+      padding: 20px;
+      border-radius: 10px;
+      border: solid #e7e6e6 1px;
+      margin-bottom: 25px;
 
-    .description {
-      font-family: Montserrat, sans-serif;
-      max-width: 850px;
-      font-size: 14px;
-      word-wrap: normal;
-      margin-bottom: 20px;
-      color: #171A1F;
-    }
+      .vacancy_url {
+        text-decoration: none;
+        color: inherit;
+        cursor: pointer;
 
-    .info-block {
-      display: flex;
-      align-items: center;
-      color: #7A532F;
-      font-size: 16px;
-      font-weight: 700;
+        .corner-text {
+          position: absolute;
+          top: 0;
+          right: 0;
+          font-weight: bold;
+          font-size: 16px;
+          width: 125px;
+          background-color: #08ADA7;
+          padding: 8px;
+          border-radius: 0 10px 0 10px;
+          box-shadow: -3px 3px 5px rgba(0, 0, 0, 0.2),
+          0 3px 5px rgba(0, 0, 0, 0.2);
+        }
 
-      .icon::before {
-        content: "";
-        display: inline-block;
-        width: 20px;
-        height: 20px;
-        margin-right: 5px;
-        background-size: cover;
-        background-repeat: no-repeat;
-        vertical-align: middle;
-      }
+        .title {
+          font-size: 24px;
+          font-family: Montserrat, sans-serif;
+          font-weight: 800;
+          margin-bottom: 20px;
+        }
 
-      .company::before {
-        background-image: url('/assets/icons/company.svg');
-      }
+        .description {
+          font-family: Montserrat, sans-serif;
+          max-width: 850px;
+          font-size: 14px;
+          word-wrap: normal;
+          margin-bottom: 20px;
+          color: #171A1F;
+        }
 
-      .location::before {
-        background-image: url('/assets/icons/location.svg') ;
-        background-size: contain ;
-        width: 17px;
-      }
+        .info-block {
+          display: flex;
+          align-items: center;
+          color: #7A532F;
+          font-size: 16px;
+          font-weight: 700;
 
-      .date::before {
-        background-image: url('/assets/icons/date.svg');
-      }
+          .icon::before {
+            content: "";
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            vertical-align: middle;
+          }
 
-      .company,
-      .location,
-      .date {
-        display: inline-block;
-        vertical-align: middle;
-        margin-right: 20px;
+          .company::before {
+            background-image: url('/assets/icons/company.svg');
+          }
+
+          .location::before {
+            background-image: url('/assets/icons/location.svg');
+            background-size: contain;
+            width: 17px;
+          }
+
+          .date::before {
+            background-image: url('/assets/icons/date.svg');
+          }
+
+          .company,
+          .location,
+          .date {
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 20px;
+          }
+        }
       }
     }
   }
 
+
   .pagination-container {
+    display: flex;
     margin-top: 70px;
+
+    ::ng-deep .ngx-pagination {
+
+      span {
+        font-size: 20px;
+
+      }
+
+      .current {
+        background: #00BDD6;
+        border-radius: 8px;
+      }
+    }
   }
 
 }
