@@ -24,28 +24,24 @@
       [cdkConnectedOverlayOpen]="overlayOpen | async"
       (overlayOutsideClick)="closeOverlay()"
     >
-      <app-search-overlay />
+      <app-search-overlay/>
     </ng-template>
   </div>
 
-  <div class="vacancies-container">
-    <div class="corner-text">Djinni</div>
-    <h1 class="title">Junior Java Dev</h1>
-    <p class="description">Delasport — Implementing Technological Solutions Here and Now Delasport is an iGaming Software company providing Sports Betting & Online Casino software, and turnkey B2B solutions.</p>
-    <div class="info-block">
-      <div class="company icon">Wix</div>
-      <div class="location icon">Kyiv</div>
-      <div class="date icon">11 квітня 2024</div>
+  <div class="list-vacancies" *ngIf="!isEmpty">
+    <div class="vacancies-container"
+         *ngFor="let vacancy of vacancies | paginate: { itemsPerPage: 5, currentPage: currentPage }">
+      <a class="vacancy_url" [href]="vacancy.urlVacancy" target="_blank">
+        <div class="corner-text">Djinni</div>
+        <h1 class="title">{{ vacancy.vacancyName }}</h1>
+        <p class="description">{{ vacancy.shortDescription }}</p>
+        <div class="info-block">
+          <div class="company icon">{{ vacancy.companyName }}</div>
+          <div class="location icon">{{ vacancy.cityName }}</div>
+          <div class="date icon">{{ vacancy.date }}</div>
+        </div>
+      </a>
     </div>
+    <pagination-controls (pageChange)="currentPage = ($event)" class="pagination-container"></pagination-controls>
   </div>
-
-  <div class="pagination-container">
-    <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
-    <ng-container *ngFor="let page of getPageRange()">
-      <span *ngIf="page === -1">...</span>
-      <button *ngIf="page !== -1" (click)="goToPage(page)" [class.active]="currentPage === page">{{ page }}</button>
-    </ng-container>
-    <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
-  </div>
-
 </div>

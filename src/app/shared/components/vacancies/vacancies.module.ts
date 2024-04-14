@@ -10,6 +10,7 @@ import {SearchOverlayComponent} from './component/search-overlay/search-overlay.
 import {MatDividerModule} from "@angular/material/divider";
 import {MatListModule} from "@angular/material/list";
 import {FilterModule} from "../filter/filter.module";
+import {NgxPaginationModule} from "ngx-pagination";
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import {FilterModule} from "../filter/filter.module";
     MatDividerModule,
     MatListModule,
     FilterModule,
-    MatIconModule
+    MatIconModule,
+    NgxPaginationModule,
   ],
   exports: [VacanciesComponent, SearchOverlayComponent],
 })

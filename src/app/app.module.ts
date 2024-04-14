@@ -11,6 +11,10 @@ import {FilterModule} from "./shared/components/filter/filter.module";
 import {VacanciesModule} from "./shared/components/vacancies/vacancies.module";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AboutusModule} from "./pages/aboutus/components/aboutus/aboutus.module";
+import { PrivacyComponent } from './pages/privacy/components/privacy/components/privacy/privacy.component';
+import {PrivacyModule} from "./pages/privacy/components/privacy/privacy.module";
+import { TermsComponent } from './pages/terms/components/terms/components/terms/terms.component';
+import {TermsModule} from "./pages/terms/components/terms/terms.module";
 
 
 @NgModule({
@@ -26,6 +30,8 @@ import {AboutusModule} from "./pages/aboutus/components/aboutus/aboutus.module";
     FilterModule,
     VacanciesModule,
     AboutusModule,
+    PrivacyModule,
+    TermsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

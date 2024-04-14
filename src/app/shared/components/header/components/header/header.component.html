@@ -16,9 +16,9 @@
 
     <div class="nav-icons">
       <div class="language-container">
-        <div class="current-language">
+        <div class="current-language" (click)="toggleLanguages()">
           {{ currentLanguage }}
-          <img class="arrow" src="assets/icons/arrow-down.svg" alt="Arrow" (click)="toggleLanguages()">
+          <img class="arrow" src="assets/icons/arrow-down.svg" alt="Arrow">
         </div>
         <ul class="language-list" *ngIf="showLanguages">
           <li *ngFor="let lang of languages" (click)="changeLanguage(lang)">{{ lang }}</li>
