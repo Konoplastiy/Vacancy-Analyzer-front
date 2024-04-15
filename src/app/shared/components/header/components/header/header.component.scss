@@ -25,19 +25,21 @@ header {
       height: 125px;
     }
 
-    .content nav ul {
-      width: 700px;
-      display: flex;
-      justify-content: space-between;
-      list-style-type: none;
-      padding: 0;
-      margin: 0;
+    .content {
+      flex: 1;
+      padding: 0 150px;
 
-      li a {
-        text-decoration: none;
+      nav ul {
+        display: flex;
+        justify-content: space-between;
+        list-style-type: none;
 
-        &:hover {
-          color: #00BDD6;
+        li a {
+          text-decoration: none;
+
+          &:hover {
+            color: #00BDD6;
+          }
         }
       }
     }
