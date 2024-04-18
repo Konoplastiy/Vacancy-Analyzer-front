@@ -13,7 +13,7 @@ export class VacanciesComponent implements OnInit {
   searchTerm = this.searchBarService.searchTerm;
   vacancies: VacancyItem[] = [];
   currentPage: number = 1;
-  totalItems: number = 0;
+  totalElements: number = 0;
   isEmpty = false;
 
   constructor(private searchBarService: SearchBarService, private vacancyService: VacancyService) {
@@ -36,11 +36,17 @@ export class VacanciesComponent implements OnInit {
     this.searchBarService.overlayOpen.next(false);
   }
 
+  onPageChange(page: number): void {
+    this.currentPage = page;
+    this.getAllVacancies();
+  }
+
   getAllVacancies(): void {
     this.vacancyService.getAllVacancies('', this.currentPage - 1).subscribe((data) => {
-      this.vacancies = data;
-      this.totalItems = data.totalItems;
+      this.vacancies = data.content;
+      this.totalElements = data.totalElements;
       this.isEmpty = this.vacancies.length === 0;
     });
   }
+
 }

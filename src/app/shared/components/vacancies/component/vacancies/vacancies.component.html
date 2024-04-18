@@ -30,7 +30,7 @@
 
   <div class="list-vacancies" *ngIf="!isEmpty">
     <div class="vacancies-container"
-         *ngFor="let vacancy of vacancies | paginate: { itemsPerPage: 5, currentPage: currentPage }">
+         *ngFor="let vacancy of vacancies | paginate: { itemsPerPage: 10, currentPage: currentPage, totalItems:totalElements}">
       <a class="vacancy_url" [href]="vacancy.urlVacancy" target="_blank">
         <div class="corner-text">Djinni</div>
         <h1 class="title">{{ vacancy.vacancyName }}</h1>
@@ -42,6 +42,6 @@
         </div>
       </a>
     </div>
-    <pagination-controls (pageChange)="currentPage = ($event)" class="pagination-container"></pagination-controls>
+    <pagination-controls (pageChange)="onPageChange($event)"></pagination-controls>
   </div>
 </div>
