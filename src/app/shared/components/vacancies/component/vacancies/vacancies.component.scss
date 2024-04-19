@@ -81,6 +81,7 @@
           color: #7A532F;
           font-size: 16px;
           font-weight: 700;
+          max-width: 1000px;
 
           .icon::before {
             content: "";
@@ -113,29 +114,66 @@
             display: inline-block;
             vertical-align: middle;
             margin-right: 20px;
+            word-wrap: break-word;
           }
         }
       }
     }
-  }
 
+    ::ng-deep {
+      .ngx-pagination {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        font-family: Montserrat, sans-serif;
+        font-size: 24px;
+        margin-top: 70px;
+        gap: 4px;
 
-  .pagination-container {
-    display: flex;
-    margin-top: 70px;
+        .pagination-previous {
+          margin-right: 50px;
+        }
 
-    ::ng-deep .ngx-pagination {
+        .pagination-next {
+          margin-left: 50px;
+        }
 
-      span {
-        font-size: 20px;
+        .pagination-previous,
+        .pagination-next {
+          font-size: 30px;
 
-      }
+          a:hover {
+            background-color: #FFFFFF;
+          }
+        }
 
-      .current {
-        background: #00BDD6;
-        border-radius: 8px;
+        .current {
+          border-radius: 50% !important;
+        }
+
+        li:not(:first-child):not(:last-child) {
+          width: 40px;
+          height: 40px;
+          border-radius: 50% !important;
+          display: flex !important;
+          justify-content: center;
+          align-items: center;
+
+          &.small-screen {
+            display: none !important;
+          }
+
+          a:hover {
+            display: flex !important;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50% !important;
+            width: 40px;
+            height: 40px;
+          }
+        }
+
       }
     }
   }
-
 }

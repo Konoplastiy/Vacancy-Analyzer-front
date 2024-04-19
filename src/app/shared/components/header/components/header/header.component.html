@@ -1,29 +1,35 @@
 <header class="header">
   <div class="container">
-    <div routerLink="/" class="logo">
+    <div class="logo">
       <img src="assets/images/logo.png" alt="logo">
     </div>
 
     <div class="content">
       <nav>
         <ul>
-          <li><a href="#">Blog</a></li>
-          <li><a routerLink="/aboutus">About us</a></li>
-          <li><a href="#">Features</a></li>
+          <li><a routerLink="/">{{ 'Home' | translate }}</a></li>
+          <li><a href="#">{{ 'Blog' | translate }}</a></li>
+          <li><a routerLink="/aboutus">{{ 'About us' | translate }}</a></li>
         </ul>
       </nav>
     </div>
 
-    <div class="nav-icons">
-      <div class="language-container">
-        <div class="current-language" (click)="toggleLanguages()">
-          {{ currentLanguage }}
+    <div class="sidebar">
+      <div class="language-container" [class.show-languages]="showLanguages">
+        <div class="selected-language" (click)="toggleDropdown()">
+          <img [src]="selectedLanguage.icon" class="lang-icon" alt="Selected Language Icon">
+          <span class="lang-name">{{ selectedLanguage.name }}</span>
           <img class="arrow" src="assets/icons/arrow-down.svg" alt="Arrow">
         </div>
-        <ul class="language-list" *ngIf="showLanguages">
-          <li *ngFor="let lang of languages" (click)="changeLanguage(lang)">{{ lang }}</li>
-        </ul>
+
+        <div class="language-list" *ngIf="showLanguages" (click)="toggleDropdown()">
+          <div class="dropdown-item" *ngFor="let lang of languages" (click)="changeLanguage(lang.value)">
+            <img [src]="lang.icon" class="lang-icon" alt="Language Icon">
+            <span>{{ lang.name }}</span>
+          </div>
+        </div>
       </div>
+
 
       <div class="news-">
         <img src="assets/icons/newsletter.svg" alt="newsletter">

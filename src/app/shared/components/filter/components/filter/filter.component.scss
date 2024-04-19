@@ -1,14 +1,17 @@
+.filter, .filter * {
+  font-family: Montserrat, sans-serif;
+}
+
 .filter {
-  max-width: 350px;
+  width: 350px;
   border: 1px solid #e1e4e7;
   border-radius: 6px;
 
   .container {
-    font-family: Montserrat, sans-serif;
 
     .filter-form {
 
-      .filter-title, .conditional, .filter-apply-btn, {
+      .filter-title, .conditional, .filter-apply-btn {
         padding: 20px;
         border-bottom: 1px solid #e1e4e7;
 
@@ -38,12 +41,13 @@
         .sub-title {
           margin-top: 0;
           font-size: 16px;
+          font-weight: bold;
         }
 
         .options-container {
           display: grid;
           grid-template-columns: repeat(2, 1fr);
-          grid-auto-rows: 30px;
+          grid-auto-rows: 35px;
           font-size: 15px;
 
           label {
@@ -58,7 +62,7 @@
 
         input[type="number"] {
           display: block;
-          width: 95%;
+          width: 90%;
           font-size: inherit;
           border: 1px solid #e1e4e7;
           border-radius: 4px;
@@ -89,6 +93,18 @@
           font-size: 14px;
           border: none;
           border-radius: 8px;
+          font-family: Montserrat, sans-serif;
+          font-weight: bold;
+
+          &:hover {
+            background-color: #ebebeb;
+            border-radius: 8px;
+            color: #00BDD6;
+            border: #00BDD6 3px solid;
+            transition: all 0.3s;
+            font-weight: bold;
+          }
+
         }
       }
     }

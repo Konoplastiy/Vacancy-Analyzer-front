@@ -5,17 +5,21 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {HeaderModule} from "./shared/components/header/header.module";
 import {FooterModule} from "./shared/components/footer/footer.module";
-import {HttpClientModule} from "@angular/common/http";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {HomeModule} from "./pages/home/components/home/home.module";
 import {FilterModule} from "./shared/components/filter/filter.module";
 import {VacanciesModule} from "./shared/components/vacancies/vacancies.module";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AboutusModule} from "./pages/aboutus/components/aboutus/aboutus.module";
-import { PrivacyComponent } from './pages/privacy/components/privacy/components/privacy/privacy.component';
 import {PrivacyModule} from "./pages/privacy/components/privacy/privacy.module";
-import { TermsComponent } from './pages/terms/components/terms/components/terms/terms.component';
 import {TermsModule} from "./pages/terms/components/terms/terms.module";
+import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
+import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 
 @NgModule({
   declarations: [AppComponent],
@@ -32,8 +36,15 @@ import {TermsModule} from "./pages/terms/components/terms/terms.module";
     AboutusModule,
     PrivacyModule,
     TermsModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      },
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

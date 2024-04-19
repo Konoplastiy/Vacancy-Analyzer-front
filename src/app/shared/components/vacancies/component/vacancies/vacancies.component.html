@@ -28,20 +28,31 @@
     </ng-template>
   </div>
 
-  <div class="list-vacancies" *ngIf="!isEmpty">
-    <div class="vacancies-container"
-         *ngFor="let vacancy of vacancies | paginate: { itemsPerPage: 5, currentPage: currentPage }">
-      <a class="vacancy_url" [href]="vacancy.urlVacancy" target="_blank">
-        <div class="corner-text">Djinni</div>
-        <h1 class="title">{{ vacancy.vacancyName }}</h1>
-        <p class="description">{{ vacancy.shortDescription }}</p>
-        <div class="info-block">
-          <div class="company icon">{{ vacancy.companyName }}</div>
-          <div class="location icon">{{ vacancy.cityName }}</div>
-          <div class="date icon">{{ vacancy.date }}</div>
-        </div>
-      </a>
+  <div class="switch">
+
+  </div>
+
+  <div *ngIf="platforms$ | async as platform">
+    <div class="list-vacancies" *ngIf="!isEmpty && platform =='vacancies'; else Platforms">
+      <div class="vacancies-container"
+           *ngFor="let vacancy of vacancies | paginate: { itemsPerPage: 10, currentPage: currentPage, totalItems:totalElements}">
+        <a class="vacancy_url" [href]="vacancy.urlVacancy" target="_blank">
+          <div class="corner-text">Djinni</div>
+          <h1 class="title">{{ vacancy.vacancyName }}</h1>
+          <p class="description">{{ vacancy.shortDescription }}</p>
+          <div class="info-block">
+            <div class="company icon">{{ vacancy.companyName }}</div>
+            <div class="location icon">{{ vacancy.cityName }}</div>
+            <div class="date icon">{{ vacancy.date }}</div>
+          </div>
+        </a>
+      </div>
+      <pagination-controls (pageChange)="onPageChange($event)"></pagination-controls>
     </div>
-    <pagination-controls (pageChange)="currentPage = ($event)" class="pagination-container"></pagination-controls>
+    <ng-template #Platforms>
+      <div class="list-platforms" *ngFor="let platformInfo of platformsInfo">
+        <app-platform-card [platformInfo]="platformInfo"></app-platform-card>
+      </div>
+    </ng-template>
   </div>
 </div>

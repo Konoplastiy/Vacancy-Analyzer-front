@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-header',
@@ -6,16 +7,32 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  currentLanguage: string = 'Eng';
-  showLanguages: boolean = false;
-  languages: string[] = ['Eng', 'Ukr']
+  currentLanguage: string = 'eng';
+  showLanguages = false;
+  ukrLanguage = {value: 'ukr', name: 'Укр', icon: "assets/icons/ukraine-flag.svg"};
+  engLanguage = {value: 'eng', name: 'Eng', icon: "assets/icons/uk-flag.svg"};
 
-  toggleLanguages() {
+  constructor(public translate: TranslateService) {
+    translate.setDefaultLang('eng');
+    translate.addLangs(['eng', 'ukr']);
+    translate.use('eng');
+  }
+
+  toggleDropdown() {
     this.showLanguages = !this.showLanguages;
   }
 
   changeLanguage(language: string) {
     this.currentLanguage = language;
     this.showLanguages = false;
+    this.translate.use(language);
+  }
+
+  get selectedLanguage() {
+    return this.currentLanguage === 'ukr' ? this.ukrLanguage : this.engLanguage;
+  }
+
+  get languages() {
+    return this.currentLanguage === 'ukr' ? [this.engLanguage] : [this.ukrLanguage];
   }
 }
