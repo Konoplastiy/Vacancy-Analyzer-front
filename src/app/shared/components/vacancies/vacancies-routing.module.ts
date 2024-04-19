@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {VacanciesComponent} from "./component/vacancies/vacancies.component";
 import {SearchOverlayComponent} from "./component/search-overlay/search-overlay.component";
+import {PlatformCardComponent} from "./component/platform-card/platform-card.component";
 
 const routes: Routes = [
   {
@@ -11,6 +12,10 @@ const routes: Routes = [
   {
     path: "",
     component: SearchOverlayComponent
+  },
+  {
+    path: "",
+    component: PlatformCardComponent
   }
 ];
 
@@ -18,4 +23,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class VacanciesRoutingModule { }
+export class VacanciesRoutingModule {}

@@ -11,10 +11,11 @@ import {MatDividerModule} from "@angular/material/divider";
 import {MatListModule} from "@angular/material/list";
 import {FilterModule} from "../filter/filter.module";
 import {NgxPaginationModule} from "ngx-pagination";
+import {PlatformCardComponent} from './component/platform-card/platform-card.component';
 
 
 @NgModule({
-  declarations: [VacanciesComponent, SearchOverlayComponent],
+  declarations: [VacanciesComponent, SearchOverlayComponent, PlatformCardComponent],
   imports: [
     CommonModule,
     VacanciesRoutingModule,
@@ -26,6 +27,7 @@ import {NgxPaginationModule} from "ngx-pagination";
     MatIconModule,
     NgxPaginationModule,
   ],
-  exports: [VacanciesComponent, SearchOverlayComponent],
+  exports: [VacanciesComponent, SearchOverlayComponent, PlatformCardComponent],
 })
-export class VacanciesModule { }
+export class VacanciesModule {
+}

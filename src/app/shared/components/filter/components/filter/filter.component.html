@@ -4,11 +4,11 @@
     <form class="filter-form" (ngSubmit)="applyFilters()">
       <div class="filter-title">
         <img class="filter-image" src="assets/icons/filter.svg" alt="filter">
-        <h3 class="title">FILTERS</h3>
+        <h3 class="title">{{ 'FILTERS' | translate }}</h3>
       </div>
 
       <div class="conditional">
-        <h3 class="sub-title">Platform</h3>
+        <h3 class="sub-title">{{ 'Platform' | translate }}</h3>
         <div class="options-container">
           <label><input type="checkbox" name="platform" value="rabota"> Rabota.ua</label>
           <label><input type="checkbox" name="platform" value="djinni"> Djinni.co</label>
@@ -18,7 +18,7 @@
       </div>
 
       <div class="conditional">
-        <h3 class="sub-title">Level of experience</h3>
+        <h3 class="sub-title">{{ 'Level of experience' | translate }}</h3>
         <div class="options-container">
           <label><input type="checkbox" name="experience" value="senior"> Senior</label>
           <label><input type="checkbox" name="experience" value="middle"> Middle</label>
@@ -28,13 +28,13 @@
       </div>
 
       <div class="conditional salary">
-        <h3 class="sub-title">Salary</h3>
-        <label class="salary-start">From: <input type="number" name="salaryFrom" min="0"></label>
-        <label class="salary-end">To: <input type="number" name="salaryTo" max="10000"></label>
+        <h3 class="sub-title">{{ 'Salary' | translate }}</h3>
+        <label class="salary-start">{{ 'From' | translate }}: <input type="number" name="salaryFrom" min="0"></label>
+        <label class="salary-end">{{ 'To' | translate }}: <input type="number" name="salaryTo" max="10000"></label>
       </div>
 
       <div class="conditional">
-        <h3 class="sub-title">Level of English</h3>
+        <h3 class="sub-title">{{ "Level of English" | translate }}</h3>
         <div class="options-container">
           <label><input type="checkbox" name="english" value="elementary"> Elementary</label>
           <label><input type="checkbox" name="english" value="pre-Intermediate"> Pre-Intermediate</label>
@@ -44,7 +44,7 @@
       </div>
 
       <div class="filter-apply-btn">
-        <button type="submit">Apply</button>
+        <button type="submit">{{ 'Apply' | translate }}</button>
       </div>
 
     </form>
