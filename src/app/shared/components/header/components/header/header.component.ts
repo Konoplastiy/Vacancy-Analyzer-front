@@ -9,6 +9,8 @@ import {TranslateService} from "@ngx-translate/core";
 export class HeaderComponent {
   currentLanguage: string = 'eng';
   showLanguages = false;
+  showSubscriptionModal: boolean = false;
+  email: string = '';
   ukrLanguage = {value: 'ukr', name: 'Укр', icon: "assets/icons/ukraine-flag.svg"};
   engLanguage = {value: 'eng', name: 'Eng', icon: "assets/icons/uk-flag.svg"};
 
@@ -35,4 +37,18 @@ export class HeaderComponent {
   get languages() {
     return this.currentLanguage === 'ukr' ? [this.engLanguage] : [this.ukrLanguage];
   }
+
+  openSubscriptionModal() {
+    this.showSubscriptionModal = true;
+  }
+
+  closeSubscriptionModal() {
+    this.showSubscriptionModal = false;
+    this.email = '';
+  }
+
+  subscribe() {
+    this.closeSubscriptionModal();
+  }
+
 }
