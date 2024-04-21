@@ -28,8 +28,9 @@
     </ng-template>
   </div>
 
-  <div class="switch">
-
+  <div class="switch-container">
+    <button class="switch-button vacancy" (click)="flipToVacancies()" [class.active]="activeButton === 'vacancy'">Vacancies</button>
+    <button class="switch-button platform" (click)="flipToPlatforms()" [class.active]="activeButton === 'platform'">Platforms</button>
   </div>
 
   <div *ngIf="platforms$ | async as platform">
@@ -49,10 +50,12 @@
       </div>
       <pagination-controls (pageChange)="onPageChange($event)"></pagination-controls>
     </div>
+
     <ng-template #Platforms>
       <div class="list-platforms" *ngFor="let platformInfo of platformsInfo">
         <app-platform-card [platformInfo]="platformInfo"></app-platform-card>
       </div>
     </ng-template>
   </div>
+
 </div>
