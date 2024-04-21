@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {SearchBarService} from '../../../../services/search-bar.service';
 import {VacancyItem, VacancyService} from "../../../../services/vacancy.service";
-import {BehaviorSubject, Observable} from "rxjs";
+import {BehaviorSubject} from "rxjs";
 import {PlatformInfo} from "../../../../services/platform.service";
 
 @Component({
@@ -18,6 +18,7 @@ export class VacanciesComponent implements OnInit {
   totalElements: number = 0;
   isEmpty: boolean = false;
   platformsInfo: PlatformInfo[] = [];
+  activeButton: string = 'vacancy';
   private platform: BehaviorSubject<'vacancies' | 'platforms'> = new BehaviorSubject<'vacancies' | 'platforms'>('vacancies');
 
 
@@ -60,9 +61,12 @@ export class VacanciesComponent implements OnInit {
 
   flipToVacancies() {
     this.platform.next("vacancies");
+    this.activeButton = 'vacancy';
   }
 
   flipToPlatforms() {
     this.platform.next("platforms");
+    this.activeButton = 'platform';
   }
+
 }
