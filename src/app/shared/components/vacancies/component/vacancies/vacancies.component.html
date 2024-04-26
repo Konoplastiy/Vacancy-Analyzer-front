@@ -1,44 +1,51 @@
 <div class="container">
 
-  <div class="search-bar-container">
-    <div
-      class="search-bar"
-      cdkOverlayOrigin
-      #overlayPosition="cdkOverlayOrigin"
-      [ngClass]="{ 'opened mat-elevation-z2': overlayOpen | async}"
-    >
-      <button mat-icon-button>
-        <mat-icon>search</mat-icon>
-      </button>
-      <input #searchInput
-             [value]="searchTerm | async"
-             placeholder="Search Anything You Want..."
-             (click)="openOverlay()"
-             (keydown.enter)="search(searchInput.value)"
-      />
+  <div class="search-bar-switch">
+    <div class="search-bar-container">
+      <div
+        class="search-bar"
+        cdkOverlayOrigin
+        #overlayPosition="cdkOverlayOrigin"
+        [ngClass]="{ 'opened mat-elevation-z2': overlayOpen | async}"
+      >
+        <button mat-icon-button>
+          <mat-icon>search</mat-icon>
+        </button>
+        <input #searchInput
+               [value]="searchTerm | async"
+               placeholder="Search Anything You Want..."
+               (click)="openOverlay()"
+               (keydown.enter)="search(searchInput.value)"
+        />
+      </div>
+
+      <ng-template
+        cdkConnectedOverlay
+        [cdkConnectedOverlayOrigin]="overlayPosition"
+        [cdkConnectedOverlayOpen]="overlayOpen | async"
+        (overlayOutsideClick)="closeOverlay()"
+      >
+        <app-search-overlay/>
+      </ng-template>
     </div>
 
-    <ng-template
-      cdkConnectedOverlay
-      [cdkConnectedOverlayOrigin]="overlayPosition"
-      [cdkConnectedOverlayOpen]="overlayOpen | async"
-      (overlayOutsideClick)="closeOverlay()"
-    >
-      <app-search-overlay/>
-    </ng-template>
+    <div class="switch-container">
+      <button class="switch-button vacancy" (click)="flipToVacancies()" [class.active]="activeButton === 'vacancy'">
+        Vacancies
+      </button>
+      <button class="switch-button platform" (click)="flipToPlatforms()" [class.active]="activeButton === 'platform'">
+        Platforms
+      </button>
+    </div>
   </div>
 
-  <div class="switch-container">
-    <button class="switch-button vacancy" (click)="flipToVacancies()" [class.active]="activeButton === 'vacancy'">Vacancies</button>
-    <button class="switch-button platform" (click)="flipToPlatforms()" [class.active]="activeButton === 'platform'">Platforms</button>
-  </div>
 
   <div *ngIf="platforms$ | async as platform">
-    <div class="list-vacancies" *ngIf="!isEmpty && platform =='vacancies'; else Platforms">
+    <div class="list-vacancies" *ngIf="platform =='vacancies'; else Platforms">
       <div class="vacancies-container"
            *ngFor="let vacancy of vacancies | paginate: { itemsPerPage: 10, currentPage: currentPage, totalItems:totalElements}">
         <a class="vacancy_url" [href]="vacancy.urlVacancy" target="_blank">
-          <div class="corner-text">Djinni</div>
+          <div class="corner-text">{{ vacancy.sourceId.name }}</div>
           <h1 class="title">{{ vacancy.vacancyName }}</h1>
           <p class="description">{{ vacancy.shortDescription }}</p>
           <div class="info-block">
@@ -51,9 +58,11 @@
       <pagination-controls (pageChange)="onPageChange($event)"></pagination-controls>
     </div>
 
-    <ng-template #Platforms>
-      <div class="list-platforms" *ngFor="let platformInfo of platformsInfo">
-        <app-platform-card [platformInfo]="platformInfo"></app-platform-card>
+    <ng-template class="list-platforms" #Platforms>
+      <div class="card-platform">
+        <div class="platform-column" *ngFor="let platformInfo of platformsInfo">
+          <app-platform-card [platformInfo]="platformInfo"></app-platform-card>
+        </div>
       </div>
     </ng-template>
   </div>

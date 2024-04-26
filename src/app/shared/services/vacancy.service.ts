@@ -9,6 +9,9 @@ export interface VacancyItem {
   cityName: string;
   date: string;
   urlVacancy: string;
+  sourceId: {
+    name: string;
+  };
 }
 
 @Injectable({
@@ -17,7 +20,7 @@ export interface VacancyItem {
 export class VacancyService {
   private apiUrl: string = 'http://localhost:8081/api/v1/';
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {}
 
   public getAllVacancies(searchText: string = '', page: number = 1): Observable<any> {
     return this.httpClient.get(`${this.apiUrl}vacancies?searchText=${searchText}&page=${page}`);

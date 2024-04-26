@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {SearchBarService} from '../../../../services/search-bar.service';
 import {VacancyItem, VacancyService} from "../../../../services/vacancy.service";
 import {BehaviorSubject} from "rxjs";
-import {PlatformInfo} from "../../../../services/platform.service";
+import {PlatformInfo, PlatformService} from "../../../../services/platform.service";
 
 @Component({
   selector: 'app-vacancies',
@@ -22,16 +22,18 @@ export class VacanciesComponent implements OnInit {
   private platform: BehaviorSubject<'vacancies' | 'platforms'> = new BehaviorSubject<'vacancies' | 'platforms'>('vacancies');
 
 
-  constructor(private searchBarService: SearchBarService, private vacancyService: VacancyService) {
+  constructor(private searchBarService: SearchBarService, private vacancyService: VacancyService, private platformService: PlatformService) {
   }
 
   async ngOnInit(): Promise<void> {
     this.getAllVacancies();
+    this.getAllPlatformsInfo();
   }
 
   search(searchTerm: string) {
     if (!searchTerm) return;
     this.searchBarService.search(searchTerm);
+    this.getAllVacancies(searchTerm);
   }
 
   openOverlay() {
@@ -47,11 +49,17 @@ export class VacanciesComponent implements OnInit {
     this.getAllVacancies();
   }
 
-  getAllVacancies(): void {
-    this.vacancyService.getAllVacancies('', this.currentPage - 1).subscribe((data) => {
+  getAllVacancies(searchTerm: string = ''): void {
+    this.vacancyService.getAllVacancies(searchTerm, this.currentPage - 1).subscribe((data) => {
       this.vacancies = data.content;
       this.totalElements = data.totalElements;
       this.isEmpty = this.vacancies.length === 0;
+    });
+  }
+
+  getAllPlatformsInfo(): void {
+    this.platformService.getAllPlatformsInfo().subscribe((data) => {
+      this.platformsInfo = data;
     });
   }
 

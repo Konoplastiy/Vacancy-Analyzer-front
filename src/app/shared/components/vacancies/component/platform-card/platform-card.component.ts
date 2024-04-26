@@ -8,4 +8,6 @@ import {PlatformInfo} from "../../../../services/platform.service";
 })
 export class PlatformCardComponent {
   @Input() platformInfo: PlatformInfo;
+
+  constructor() {}
 }
