@@ -1,9 +1,24 @@
 <div class="container">
-
-  <div class="platformName"> {{ platformInfo.namePlatform }} </div>
-  ////
-
-  ////
-
-  ///
+  <div class="platform-name">{{ platformInfo.namePlatform }}</div>
+  <div class="info-data">
+    <a href="#" class="exp-level">
+      <span class="exp-lvl-text">Senior</span>
+      <span class="result">{{ platformInfo.senior }}</span>
+    </a>
+    <div class="border"></div>
+    <a href="#" class="exp-level">
+      <span class="exp-lvl-text">Middle</span>
+      <span class="result">{{ platformInfo.middle }}</span>
+    </a>
+    <div class="border"></div>
+    <a href="#" class="exp-level">
+      <span class="exp-lvl-text">Junior</span>
+      <span class="result">{{ platformInfo.junior }}</span>
+    </a>
+    <div class="border"></div>
+    <a href="#" class="exp-level">
+      <span class="exp-lvl-text">Others</span>
+      <span class="result">{{ platformInfo.others }}</span>
+    </a>
+  </div>
 </div>

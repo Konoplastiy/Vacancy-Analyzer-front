@@ -39,10 +39,22 @@
           .link {
             text-decoration: none;
             font-weight: 500;
+            position: relative;
+            color: #171A1F;
 
-            &:hover {
-              color: #00BDD6;
-              border-bottom: 2px solid #00BDD6;
+            &:after {
+              content: "";
+              position: absolute;
+              background-color: #08ADA7;
+              height: 3px;
+              width: 0;
+              left: 0;
+              bottom: -8px;
+              transition: 0.3s;
+            }
+
+            &:hover:after {
+              width: 100%;
             }
           }
         }
@@ -103,7 +115,6 @@
           position: absolute;
           top: 32px;
           left: 0;
-
           display: flex;
           flex-wrap: wrap;
           background-color: #00BDD6;
@@ -157,7 +168,7 @@
       }
     }
 
-    .modal {
+    .subscribe-container {
       position: fixed;
       top: 50%;
       left: 50%;
@@ -239,7 +250,6 @@
             font-weight: 600;
             font-size: 14px;
           }
-
         }
       }
     }

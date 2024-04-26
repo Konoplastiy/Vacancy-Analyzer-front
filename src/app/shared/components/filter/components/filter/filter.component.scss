@@ -88,20 +88,19 @@
         button {
           height: 36px;
           width: 100%;
-          color: #FFFFFF;
-          background-color: #00BDD6;
+          color: #00BDD6;
+          background-color: #ebebeb;
           font-size: 14px;
-          border: none;
+          border: #00BDD6 2px solid;
           border-radius: 8px;
           font-family: Montserrat, sans-serif;
           font-weight: bold;
           cursor: pointer;
 
           &:hover {
-            background-color: #ebebeb;
+            background-color: #00BDD6;
+            color: #FFFFFF;
             border-radius: 8px;
-            color: #00BDD6;
-            border: #00BDD6 3px solid;
             transition: all 0.3s;
             font-weight: bold;
           }

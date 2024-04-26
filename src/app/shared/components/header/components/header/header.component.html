@@ -32,25 +32,29 @@
 
 
       <div class="news">
-        <img class="newsletter" src="assets/icons/newsletter.svg" alt="newsletter" (click)="openSubscriptionModal()">
+        <img class="newsletter" src="assets/icons/newsletter.svg" alt="newsletter" (click)="openSubscriptionModal()"
+             height="16" width="16">
         <span class="subscribe" (click)="openSubscriptionModal()">Subscribe</span>
       </div>
 
-      <div class="modal" *ngIf="showSubscriptionModal">
+      <div class="subscribe-container" *ngIf="showSubscriptionModal">
         <div class="modal-content">
-          <img class="newsletter-img" src="assets/images/newsletter.png" alt="newsletter-img">
+          <img class="newsletter-img" src="assets/images/newsletter.png" alt="newsletter-img" height="64" width="64">
           <span class="close-icon" (click)="closeSubscriptionModal()">
-            <img class="close-img" src="assets/icons/close.svg" alt="close">
+            <img class="close-img" src="assets/icons/close.svg" alt="close" height="512" width="512">
           </span>
           <h2 class="headline">Subscribe</h2>
           <p class="newsletter-text">Subscribe to our newsletter & stay updated</p>
           <form class="newsletter-form" (submit)="subscribe()">
-            <input class="email-input" type="email" [(ngModel)]="email" placeholder="Enter your email">
+            <input class="email-input"
+                   type="email"
+                   [(ngModel)]="email"
+                   placeholder="Enter your email"
+            >
             <button class="subscribe-btn" type="submit">Subscribe</button>
           </form>
         </div>
       </div>
     </div>
-
   </div>
 </header>
