@@ -1,54 +1,48 @@
-<div class="filter">
-  <div class="container">
+<div class="container">
+  <form class="filter-form" (ngSubmit)="applyFilters()">
+    <div class="filter-title">
+      <img class="filter-image" src="assets/icons/filter.svg" alt="filter">
+      <h3 class="title" translate>{{ 'FILTERS' | translate }}</h3>
+    </div>
 
-    <form class="filter-form" (ngSubmit)="applyFilters()">
-      <div class="filter-title">
-        <img class="filter-image" src="assets/icons/filter.svg" alt="filter">
-        <h3 class="title">{{ 'FILTERS' | translate }}</h3>
+    <div class="conditional">
+      <h3 class="sub-title" translate>{{ 'Platform' | translate }}</h3>
+      <div class="options-container">
+        <label><input type="checkbox" name="platform" value="rabota"> Rabota.ua</label>
+        <label><input type="checkbox" name="platform" value="djinni"> Djinni.co</label>
+        <label><input type="checkbox" name="platform" value="dou"> DOU.ua</label>
+        <label><input type="checkbox" name="platform" value="work"> Work.ua</label>
       </div>
+    </div>
 
-      <div class="conditional">
-        <h3 class="sub-title">{{ 'Platform' | translate }}</h3>
-        <div class="options-container">
-          <label><input type="checkbox" name="platform" value="rabota"> Rabota.ua</label>
-          <label><input type="checkbox" name="platform" value="djinni"> Djinni.co</label>
-          <label><input type="checkbox" name="platform" value="dou"> DOU.ua</label>
-          <label><input type="checkbox" name="platform" value="work"> Work.ua</label>
-        </div>
+    <div class="conditional">
+      <h3 class="sub-title" translate>{{ 'Level of experience' | translate }}</h3>
+      <div class="options-container">
+        <label><input type="checkbox" name="experience" value="senior"> Senior</label>
+        <label><input type="checkbox" name="experience" value="middle"> Middle</label>
+        <label><input type="checkbox" name="experience" value="junior"> Junior</label>
+        <label><input type="checkbox" name="experience" value="trainee"> Trainee / Intern</label>
       </div>
+    </div>
 
-      <div class="conditional">
-        <h3 class="sub-title">{{ 'Level of experience' | translate }}</h3>
-        <div class="options-container">
-          <label><input type="checkbox" name="experience" value="senior"> Senior</label>
-          <label><input type="checkbox" name="experience" value="middle"> Middle</label>
-          <label><input type="checkbox" name="experience" value="junior"> Junior</label>
-          <label><input type="checkbox" name="experience" value="trainee"> Trainee</label>
-        </div>
+    <div class="conditional salary">
+      <h3 class="sub-title" translate>{{ 'Salary' | translate }}</h3>
+      <label class="salary-start">{{ 'From' | translate }}: <input type="number" name="salaryFrom" min="0"></label>
+      <label class="salary-end">{{ 'To' | translate }}: <input type="number" name="salaryTo" max="10000"></label>
+    </div>
+
+    <div class="conditional">
+      <h3 class="sub-title" translate>{{ 'Level of Work' | translate }}</h3>
+      <div class="options-container">
+        <label><input type="checkbox" name="work" value="no-experience"> No experience </label>
+        <label><input type="checkbox" name="work" value="one-year"> 1 year </label>
+        <label><input type="checkbox" name="work" value="two-years"> 2 years </label>
+        <label><input type="checkbox" name="work" value="five-years"> 5 years </label>
       </div>
+    </div>
 
-      <div class="conditional salary">
-        <h3 class="sub-title">{{ 'Salary' | translate }}</h3>
-        <label class="salary-start">{{ 'From' | translate }}: <input type="number" name="salaryFrom" min="0"></label>
-        <label class="salary-end">{{ 'To' | translate }}: <input type="number" name="salaryTo" max="10000"></label>
-      </div>
-
-      <div class="conditional">
-        <h3 class="sub-title">{{ "Level of English" | translate }}</h3>
-        <div class="options-container">
-          <label><input type="checkbox" name="english" value="elementary"> Elementary</label>
-          <label><input type="checkbox" name="english" value="pre-Intermediate"> Pre-Intermediate</label>
-          <label><input type="checkbox" name="english" value="intermediate"> Intermediate</label>
-          <label><input type="checkbox" name="english" value="upper-intermediate"> Upper-Intermediate</label>
-        </div>
-      </div>
-
-      <div class="filter-apply-btn">
-        <button type="submit">{{ 'Apply' | translate }}</button>
-      </div>
-
-    </form>
-  </div>
+    <div class="filter-apply-btn">
+      <button type="submit" translate>{{ 'Apply'  | translate }}</button>
+    </div>
+  </form>
 </div>
-
-

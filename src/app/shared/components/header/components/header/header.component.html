@@ -45,13 +45,18 @@
           </span>
           <h2 class="headline">Subscribe</h2>
           <p class="newsletter-text">Subscribe to our newsletter & stay updated</p>
-          <form class="newsletter-form" (submit)="subscribe()">
+          <form class="newsletter-form" [formGroup]="form" (submit)="subscribe()">
             <input class="email-input"
                    type="email"
-                   [(ngModel)]="email"
                    placeholder="Enter your email"
+                   formControlName="email"
             >
-            <button class="subscribe-btn" type="submit">Subscribe</button>
+            <button class="subscribe-btn" type="submit" [disabled]="!form.valid">Subscribe</button>
+            <label class="text-danger" *ngIf="form.get('email')">
+              {{
+                getError(form.get('email'))
+              }}
+            </label>
           </form>
         </div>
       </div>

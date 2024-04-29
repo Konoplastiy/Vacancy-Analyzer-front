@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {AboutusComponent} from "./components/aboutus/aboutus.component";
+import {AboutusComponent} from "./aboutus/components/aboutus/aboutus.component";
 
 const routes: Routes = [
   {
