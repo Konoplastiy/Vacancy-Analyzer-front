@@ -10,11 +10,12 @@ import {HomeModule} from "./pages/home/components/home/home.module";
 import {FilterModule} from "./shared/components/filter/filter.module";
 import {VacanciesModule} from "./shared/components/vacancies/vacancies.module";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {AboutusModule} from "./pages/aboutus/components/aboutus/aboutus.module";
+import {AboutusModule} from "./pages/aboutus/components/aboutus.module";
 import {PrivacyModule} from "./pages/privacy/components/privacy/privacy.module";
 import {TermsModule} from "./pages/terms/components/terms/terms.module";
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
+import {BlogModule} from "./pages/blog/components/blog/blog.module";
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -36,6 +37,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AboutusModule,
     PrivacyModule,
     TermsModule,
+    BlogModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -47,4 +49,5 @@ export function HttpLoaderFactory(http: HttpClient) {
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule {
+}

@@ -1,8 +1,9 @@
 .container {
+  width: 1200px;
   display: flex;
-  padding: 100px 100px 100px 150px;
+  margin: 100px auto;
 
   .filter {
-    margin-right: 110px;
+    margin-right: 50px;
   }
 }

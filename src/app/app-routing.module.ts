@@ -10,7 +10,7 @@ const routes: Routes = [
   {
     path: 'aboutus',
     loadChildren: () =>
-      import('./pages/aboutus/components/aboutus/aboutus.module').then((m) => m.AboutusModule)
+      import('./pages/aboutus/components/aboutus.module').then((m) => m.AboutusModule)
   },
   {
     path: 'privacy',

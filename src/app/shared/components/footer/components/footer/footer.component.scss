@@ -6,8 +6,7 @@ footer {
 
 
   .container {
-    max-width: 1800px;
-    padding: 0 190px;
+    max-width: 1200px;
     height: 175px;
     display: flex;
     margin: 0 auto;
@@ -21,7 +20,6 @@ footer {
       height: 125px;
     }
 
-
     .content {
       width: 550px;
       height: 80px;
@@ -30,15 +28,16 @@ footer {
         display: flex;
         justify-content: space-between;
         font-size: 19px;
+        font-weight: 500;
 
         a {
           text-decoration: none;
-          &:hover{
-            color: #00BDD6;
+
+          &:hover {
+            color: #00bdd6;
           }
         }
       }
-
 
       .info {
         display: flex;
@@ -48,12 +47,10 @@ footer {
       }
     }
 
-
     .social {
       display: flex;
       width: 187px;
       justify-content: space-between;
-
 
       .item img {
         width: 45px;
