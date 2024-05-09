@@ -1,25 +1,37 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {TranslateService} from "@ngx-translate/core";
 import {AbstractControl, FormControl, FormGroup, Validators} from "@angular/forms";
+import {SubscriberService} from "../../../../services/subscriber.service";
+import {SubscriberModel} from "../../../../models/subscriber-model";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   currentLanguage: string = 'eng';
   showLanguages = false;
-  showSubscriptionModal: boolean = false;
-  ukrLanguage = {value: 'ukr', name: 'Укр', icon: "assets/icons/ukraine-flag.svg"};
-  engLanguage = {value: 'eng', name: 'Eng', icon: "assets/icons/uk-flag.svg"};
+  showSubscriptionModal = false;
+  languages = [
+    { value: 'ukr', name: 'Укр', icon: "assets/icons/ukraine-flag.svg" },
+    { value: 'eng', name: 'Eng', icon: "assets/icons/uk-flag.svg" }
+  ];
   form: FormGroup;
 
-  constructor(public translate: TranslateService) {
-    translate.setDefaultLang('eng');
-    translate.addLangs(['eng', 'ukr']);
-    translate.use('eng');
+  constructor(public translate: TranslateService, private subscriberService: SubscriberService, private snackBar: MatSnackBar) {
+  }
+
+  ngOnInit(): void {
     this.initializeForm();
+    this.initTranslate();
+  }
+
+  initTranslate() {
+    this.translate.setDefaultLang('eng');
+    this.translate.addLangs(this.languages.map(lang => lang.value));
+    this.translate.use(this.currentLanguage);
   }
 
   toggleDropdown() {
@@ -33,11 +45,11 @@ export class HeaderComponent {
   }
 
   get selectedLanguage() {
-    return this.currentLanguage === 'ukr' ? this.ukrLanguage : this.engLanguage;
+    return this.languages.find(lang => lang.value === this.currentLanguage);
   }
 
-  get languages() {
-    return this.currentLanguage === 'ukr' ? [this.engLanguage] : [this.ukrLanguage];
+  get otherLanguages() {
+    return this.languages.filter(lang => lang.value !== this.currentLanguage);
   }
 
   openSubscriptionModal() {
@@ -49,22 +61,33 @@ export class HeaderComponent {
     this.form.reset();
   }
 
-  subscribe() {
+  subscribe(): void {
     if (this.form.valid) {
-      this.closeSubscriptionModal();
+      const email: SubscriberModel = this.form.getRawValue();
+
+      this.subscriberService.createNewsletterSubscriber(email)
+        .subscribe({
+          next: () => {
+            this.snackBar.open('Subscription successful', 'Close', { duration: 3000 });
+            this.closeSubscriptionModal();
+          },
+          error: (error) => {
+            this.snackBar.open('Failed to subscribe', 'Retry', { duration: 3000 });
+          }
+        });
     }
   }
 
   initializeForm() {
     this.form = new FormGroup({
-      email: new FormControl("", [Validators.required, this.customeEmailValidator])
+      email: new FormControl("", [Validators.required, Validators.email, this.customeEmailValidator])
     });
   }
 
   getError(control): string {
-    if (control.errors?.required && control.touched)
+    if (control.errors?.required && control.untouched)
       return 'This field is required!';
-    else if (control.errors?.emailError && control.touched)
+    else if (control.errors?.emailError && control.untouched)
       return 'Please enter valid email address!';
     else return '';
   }
@@ -72,7 +95,7 @@ export class HeaderComponent {
   customeEmailValidator(control: AbstractControl) {
     const pattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,20}$/;
     const value = control.value;
-    if (!pattern.test(value) && control.touched)
+    if (!pattern.test(value) && control.untouched)
       return {
         emailError: true
       }

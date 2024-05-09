@@ -1,8 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {SearchBarService} from '../../../../services/search-bar.service';
-import {VacancyItem, VacancyService} from "../../../../services/vacancy.service";
+import {VacancyItem} from "../../../../models/vacancy-item";
 import {BehaviorSubject} from "rxjs";
-import {PlatformInfo, PlatformService} from "../../../../services/platform.service";
+import {PlatformInfoItem} from "../../../../models/platform-info-item";
+import {VacancyService} from "../../../../services/vacancy.service";
+import {PlatformService} from "../../../../services/platform.service";
 
 @Component({
   selector: 'app-vacancies',
@@ -17,7 +19,7 @@ export class VacanciesComponent implements OnInit {
   currentPage: number = 1;
   totalElements: number = 0;
   isEmpty: boolean = false;
-  platformsInfo: PlatformInfo[] = [];
+  platformsInfo: PlatformInfoItem[] = [];
   activeButton: string = 'vacancy';
   private platform: BehaviorSubject<'vacancies' | 'platforms'> = new BehaviorSubject<'vacancies' | 'platforms'>('vacancies');
 

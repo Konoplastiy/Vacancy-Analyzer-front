@@ -12,6 +12,7 @@ import {MatListModule} from "@angular/material/list";
 import {FilterModule} from "../filter/filter.module";
 import {NgxPaginationModule} from "ngx-pagination";
 import {PlatformCardComponent} from './component/platform-card/platform-card.component';
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import {PlatformCardComponent} from './component/platform-card/platform-card.com
     FilterModule,
     MatIconModule,
     NgxPaginationModule,
+    MatSnackBarModule
   ],
   exports: [VacanciesComponent, SearchOverlayComponent, PlatformCardComponent],
 })

@@ -74,6 +74,12 @@ $max-width: 1420px;
       max-width: $max-width;
 
       .card {
+
+        .card-img{
+          width: 350px;
+          height: 415px;
+        }
+
         .card-content {
           margin-top: 45px;
 

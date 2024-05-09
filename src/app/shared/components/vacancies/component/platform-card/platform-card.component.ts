@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {PlatformInfo} from "../../../../services/platform.service";
+import {PlatformInfoItem} from "../../../../models/platform-info-item";
 
 @Component({
   selector: 'app-platform-card',
@@ -7,7 +7,7 @@ import {PlatformInfo} from "../../../../services/platform.service";
   styleUrls: ['./platform-card.component.scss']
 })
 export class PlatformCardComponent {
-  @Input() platformInfo: PlatformInfo;
+  @Input() platformInfo: PlatformInfoItem;
 
   constructor() {}
 }

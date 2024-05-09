@@ -1,26 +1,31 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 
 const routes: Routes = [
   {
     path: '',
     loadChildren: () =>
-      import('./pages/home/components/home/home.module').then((m) => m.HomeModule),
+      import('./pages/home/home.module').then((m) => m.HomeModule),
   },
   {
     path: 'aboutus',
     loadChildren: () =>
-      import('./pages/aboutus/components/aboutus.module').then((m) => m.AboutusModule)
+      import('./pages/aboutus/aboutus.module').then((m) => m.AboutusModule)
+  },
+  {
+    path: 'blog',
+    loadChildren: () =>
+      import('./pages/blog/blog.module').then((m) => m.BlogModule)
   },
   {
     path: 'privacy',
     loadChildren: () =>
-      import('./pages/privacy/components/privacy/privacy.module').then((m) => m.PrivacyModule)
+      import('./pages/privacy/privacy.module').then((m) => m.PrivacyModule)
   },
   {
     path: 'terms',
     loadChildren: () =>
-      import('./pages/terms/components/terms/terms.module').then((m) => m.TermsModule)
+      import('./pages/terms/terms.module').then((m) => m.TermsModule)
   },
 ];
 
