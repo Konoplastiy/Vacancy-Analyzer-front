@@ -163,6 +163,10 @@
           font-size: 20px;
           font-weight: 500;
         }
+
+        &:hover {
+          box-shadow: rgb(12, 185, 179) 0px 3px 8px;
+        }
       }
     }
 

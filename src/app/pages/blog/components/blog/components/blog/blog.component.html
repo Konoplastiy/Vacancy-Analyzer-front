@@ -1,1 +1,22 @@
-<p>blog works!</p>
+<div class="container">
+
+  <div class="blog-title">
+    <h1 class="title">Read the Blog </h1>
+  </div>
+
+  <div class="list-blogs">
+    <div class="blog-card" *ngFor="let blog of blogs | paginate: { itemsPerPage: 10, currentPage: currentPage, totalItems:totalElements}">
+      <img class="blog-image" src="assets/images/blog.png" alt="blog">
+      <div class="blog-info">
+        <h1 class="article-title">{{ blog.title }}</h1>
+        <div class="views-container">
+          <span class="date">{{ blog.datePublic | date: 'longDate'}}</span>
+          <img class="view-icon" src="assets/icons/view.svg" alt="view">
+          <span class="views-number">{{ blog.countViews || 35 }}</span>
+        </div>
+        <p class="description">{{ blog.content }}</p>
+      </div>
+    </div>
+  </div>
+  <pagination-controls (pageChange)="onPageChange($event)"></pagination-controls>
+</div>

@@ -6,16 +6,16 @@ import {AppComponent} from './app.component';
 import {HeaderModule} from "./shared/components/header/header.module";
 import {FooterModule} from "./shared/components/footer/footer.module";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
-import {HomeModule} from "./pages/home/components/home/home.module";
+import {HomeModule} from "./pages/home/home.module";
 import {FilterModule} from "./shared/components/filter/filter.module";
 import {VacanciesModule} from "./shared/components/vacancies/vacancies.module";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {AboutusModule} from "./pages/aboutus/components/aboutus.module";
-import {PrivacyModule} from "./pages/privacy/components/privacy/privacy.module";
-import {TermsModule} from "./pages/terms/components/terms/terms.module";
+import {AboutusModule} from "./pages/aboutus/aboutus.module";
+import {PrivacyModule} from "./pages/privacy/privacy.module";
+import {TermsModule} from "./pages/terms/terms.module";
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
-import {BlogModule} from "./pages/blog/components/blog/blog.module";
+import {BlogModule} from "./pages/blog/blog.module";
 
 
 export function HttpLoaderFactory(http: HttpClient) {

@@ -8,7 +8,7 @@
       <nav>
         <ul>
           <li><a routerLink="/" class="link">{{ 'Home' | translate }}</a></li>
-          <li><a href="#" class="link">{{ 'Blog' | translate }}</a></li>
+          <li><a routerLink="/blog" class="link">{{ 'Blog' | translate }}</a></li>
           <li><a routerLink="/aboutus" class="link">{{ 'About us' | translate }}</a></li>
         </ul>
       </nav>
@@ -23,7 +23,7 @@
         </div>
 
         <div class="language-list" *ngIf="showLanguages" (click)="toggleDropdown()">
-          <div class="dropdown-item" *ngFor="let lang of languages" (click)="changeLanguage(lang.value)">
+          <div class="dropdown-item" *ngFor="let lang of otherLanguages" (click)="changeLanguage(lang.value)">
             <img [src]="lang.icon" class="lang-icon" alt="Language Icon">
             <span>{{ lang.name }}</span>
           </div>
