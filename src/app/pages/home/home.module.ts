@@ -12,7 +12,7 @@ import {VacanciesModule} from "../../shared/components/vacancies/vacancies.modul
     CommonModule,
     HomeRoutingModule,
     FilterModule,
-    VacanciesModule
+    VacanciesModule,
   ],
   exports: [HomeComponent],
 })

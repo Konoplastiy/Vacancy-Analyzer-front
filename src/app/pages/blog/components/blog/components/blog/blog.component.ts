@@ -22,6 +22,7 @@ export class BlogComponent implements OnInit {
 
   onPageChange(page: number): void {
     this.currentPage = page;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     this.getAllBlogs();
   }
 

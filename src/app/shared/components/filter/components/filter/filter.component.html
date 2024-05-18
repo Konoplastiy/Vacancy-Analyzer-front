@@ -1,48 +1,44 @@
 <div class="container">
-  <form class="filter-form" (ngSubmit)="applyFilters()">
-    <div class="filter-title">
-      <img class="filter-image" src="assets/icons/filter.svg" alt="filter">
-      <h3 class="title" translate>{{ 'FILTERS' | translate }}</h3>
-    </div>
-
-    <div class="conditional">
-      <h3 class="sub-title" translate>{{ 'Platform' | translate }}</h3>
+  <div class="filter-title">
+    <img class="filter-image" src="assets/icons/filter.svg" alt="filter">
+    <h3 class="title" translate>{{ 'FILTERS' | translate }}</h3>
+  </div>
+  <form class="filter-form" [formGroup]="filterForm" (ngSubmit)="applyFilters()">
+    <div class="conditional" formArrayName="platformName">
+      <h3 class="sub-title">{{ 'Platform' | translate }}</h3>
       <div class="options-container">
-        <label><input type="checkbox" name="platform" value="rabota"> Rabota.ua</label>
-        <label><input type="checkbox" name="platform" value="djinni"> Djinni.co</label>
-        <label><input type="checkbox" name="platform" value="dou"> DOU.ua</label>
-        <label><input type="checkbox" name="platform" value="work"> Work.ua</label>
+        <label *ngFor="let platform of platformName; let i = index">
+          <input type="checkbox" [formControlName]="i"> {{ platform }}
+        </label>
       </div>
     </div>
 
-    <div class="conditional">
-      <h3 class="sub-title" translate>{{ 'Level of experience' | translate }}</h3>
+    <div class="conditional" formArrayName="experienceLevel">
+      <h3 class="sub-title">{{ 'Level of experience' | translate }}</h3>
       <div class="options-container">
-        <label><input type="checkbox" name="experience" value="senior"> Senior</label>
-        <label><input type="checkbox" name="experience" value="middle"> Middle</label>
-        <label><input type="checkbox" name="experience" value="junior"> Junior</label>
-        <label><input type="checkbox" name="experience" value="trainee"> Trainee / Intern</label>
+        <label *ngFor="let exp of experienceLevels; let i = index">
+          <input type="checkbox" [formControlName]="i"> {{ exp }}
+        </label>
       </div>
     </div>
 
-    <div class="conditional salary">
-      <h3 class="sub-title" translate>{{ 'Salary' | translate }}</h3>
-      <label class="salary-start">{{ 'From' | translate }}: <input type="number" name="salaryFrom" min="0"></label>
-      <label class="salary-end">{{ 'To' | translate }}: <input type="number" name="salaryTo" max="10000"></label>
+    <div class="salary" formGroupName="salary">
+      <h3 class="sub-title">{{ 'Salary' | translate }}</h3>
+      <label class="salary-start">{{ 'From' | translate }}:<input type="number" formControlName="from"></label>
+      <label class="salary-end">{{ 'To' | translate }}:<input type="number" formControlName="to"></label>
     </div>
 
-    <div class="conditional">
-      <h3 class="sub-title" translate>{{ 'Level of Work' | translate }}</h3>
+    <div class="conditional" formArrayName="work">
+      <h3 class="sub-title">{{ 'Level of Work' | translate }}</h3>
       <div class="options-container">
-        <label><input type="checkbox" name="work" value="no-experience"> No experience </label>
-        <label><input type="checkbox" name="work" value="one-year"> 1 year </label>
-        <label><input type="checkbox" name="work" value="two-years"> 2 years </label>
-        <label><input type="checkbox" name="work" value="five-years"> 5 years </label>
+        <label *ngFor="let work of workLevels; let i = index">
+          <input type="checkbox" [formControlName]="i"> {{ work }}
+        </label>
       </div>
     </div>
 
     <div class="filter-apply-btn">
-      <button type="submit" translate>{{ 'Apply'  | translate }}</button>
+      <button type="submit" translate>{{ 'Apply' | translate }}</button>
     </div>
   </form>
 </div>

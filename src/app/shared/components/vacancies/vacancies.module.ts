@@ -13,22 +13,24 @@ import {FilterModule} from "../filter/filter.module";
 import {NgxPaginationModule} from "ngx-pagination";
 import {PlatformCardComponent} from './component/platform-card/platform-card.component';
 import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {TranslateModule} from "@ngx-translate/core";
 
 
 @NgModule({
   declarations: [VacanciesComponent, SearchOverlayComponent, PlatformCardComponent],
-  imports: [
-    CommonModule,
-    VacanciesRoutingModule,
-    MatButtonModule,
-    OverlayModule,
-    MatDividerModule,
-    MatListModule,
-    FilterModule,
-    MatIconModule,
-    NgxPaginationModule,
-    MatSnackBarModule
-  ],
+    imports: [
+        CommonModule,
+        VacanciesRoutingModule,
+        MatButtonModule,
+        OverlayModule,
+        MatDividerModule,
+        MatListModule,
+        FilterModule,
+        MatIconModule,
+        NgxPaginationModule,
+        MatSnackBarModule,
+        TranslateModule
+    ],
   exports: [VacanciesComponent, SearchOverlayComponent, PlatformCardComponent],
 })
 export class VacanciesModule {
