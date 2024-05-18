@@ -31,10 +31,10 @@
 
     <div class="switch-container">
       <button class="switch-button vacancy" (click)="flipToVacancies()" [class.active]="activeButton === 'vacancy'">
-        Vacancies
+        {{ "Vacancies" | translate}}
       </button>
       <button class="switch-button platform" (click)="flipToPlatforms()" [class.active]="activeButton === 'platform'">
-        Platforms
+        {{ "Platforms" | translate}}
       </button>
     </div>
   </div>

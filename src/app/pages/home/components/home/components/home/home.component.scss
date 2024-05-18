@@ -1,7 +1,8 @@
 .container {
-  width: 1200px;
+  width: 1300px;
   display: flex;
   margin: 100px auto;
+  justify-content: space-around;
 
   .filter {
     margin-right: 50px;

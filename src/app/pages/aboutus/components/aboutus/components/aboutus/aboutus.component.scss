@@ -1,6 +1,6 @@
 $font-family: Montserrat, sans-serif;
 $blue-gray-color: #171A1F;
-$max-width: 1420px;
+$max-width: 1300px;
 
 
 .container {
@@ -15,6 +15,7 @@ $max-width: 1420px;
   }
 
   .story-img, .value-img, .card-img {
+    width: 600px;
     border-radius: 20px;
   }
 
@@ -42,11 +43,14 @@ $max-width: 1420px;
     justify-content: space-between;
 
     .story-content {
+      max-width: 600px;
+
       .story-text {
         margin-top: 40px;
         font-family: $font-family;
         font-size: 20px;
         line-height: 38px;
+        word-break: break-word;
       }
     }
   }
@@ -75,9 +79,9 @@ $max-width: 1420px;
 
       .card {
 
-        .card-img{
+        .card-img {
           width: 350px;
-          height: 415px;
+          height: 450px;
         }
 
         .card-content {
@@ -112,11 +116,14 @@ $max-width: 1420px;
     justify-content: space-between;
 
     .value-content {
+      max-width: 600px;
+
       .value-text {
         margin-top: 40px;
         font-family: $font-family;
         font-size: 20px;
         line-height: 38px;
+        word-break: break-word;
       }
     }
   }

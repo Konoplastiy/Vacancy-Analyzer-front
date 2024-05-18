@@ -8,6 +8,7 @@
       <nav>
         <ul>
           <li><a routerLink="/" class="link">{{ 'Home' | translate }}</a></li>
+          <li><a routerLink="/analysis" class="link">{{ 'Analysis' | translate }}</a></li>
           <li><a routerLink="/blog" class="link">{{ 'Blog' | translate }}</a></li>
           <li><a routerLink="/aboutus" class="link">{{ 'About us' | translate }}</a></li>
         </ul>
@@ -30,11 +31,10 @@
         </div>
       </div>
 
-
       <div class="news">
         <img class="newsletter" src="assets/icons/newsletter.svg" alt="newsletter" (click)="openSubscriptionModal()"
              height="16" width="16">
-        <span class="subscribe" (click)="openSubscriptionModal()">Subscribe</span>
+        <span class="subscribe" (click)="openSubscriptionModal()">{{ "Subscribe" | translate }}</span>
       </div>
 
       <div class="subscribe-container" *ngIf="showSubscriptionModal">
