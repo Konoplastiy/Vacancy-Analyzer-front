@@ -1,9 +1,9 @@
 <div class="container">
-  <div class="title">
+  <div class="title" data-aos="fade-down" data-aos-duration="1000" data-aos-once="true">
     <h1 class="title-name">{{ "About us" | translate }}</h1>
   </div>
 
-  <div class="story">
+  <div class="story" data-aos="fade-down-right" data-aos-duration="1000" data-aos-delay="300" data-aos-once="false">
     <div class="story-content">
       <h2 class="story-title">{{ "Our story" | translate }}</h2>
       <p class="story-text">{{ "Story text" | translate }}</p>
@@ -11,41 +11,37 @@
     <img class="story-img" src="/assets/images/story.png" alt="story">
   </div>
 
-  <div class="team">
+  <div class="team" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600" data-aos-once="false">
     <h2 class="team-title">{{ "The team" | translate }}</h2>
-
     <div class="card-team">
-      <div class="card">
-        <img class="card-img" src="/assets/images/team1.png" alt="team1">
+      <div class="card" *ngFor="let member of teamMembers" data-aos="zoom-in" data-aos-duration="500" data-aos-delay="600">
+        <img class="card-img" [src]="member.imgSrc" [alt]="member.name">
         <div class="card-content">
-          <h3 class="name">Andrew Konoplastiy</h3>
-          <p class="role">Full Stack</p>
-        </div>
-      </div>
-
-      <div class="card">
-        <img class="card-img" src="/assets/images/team2.png" alt="team1">
-        <div class="card-content">
-          <h3 class="name">Eddie Stephens</h3>
-          <p class="role">QA Engineer</p>
-        </div>
-      </div>
-
-      <div class="card">
-        <img class="card-img" src="/assets/images/team3.png" alt="team1">
-        <div class="card-content">
-          <h3 class="name">Jon Harrison</h3>
-          <p class="role">UI/UX designer</p>
+          <h3 class="name">{{ member.name }}</h3>
+          <p class="role">{{ member.role }}</p>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="value">
+  <div class="value" data-aos="fade-down-left" data-aos-duration="1000" data-aos-delay="300" data-aos-once="false">
     <img class="value-img" src="/assets/images/value.png" alt="value">
     <div class="value-content">
       <h2 class="value-title">{{ "Value" | translate }}</h2>
       <p class="value-text">{{ "Value text" | translate }}</p>
+    </div>
+  </div>
+
+  <div class="achievements" data-aos="zoom-out" data-aos-duration="1000" data-aos-delay="300" data-aos-once="false">
+    <h2 class="achievements-title">{{ "Achievements" | translate }}</h2>
+    <div class="achievement-cards">
+      <div class="achievement" *ngFor="let achievement of achievements" data-aos="flip-up" data-aos-duration="500" data-aos-delay="500" data-aos-once="false">
+        <img class="achievement-img" [src]="achievement.icon" [alt]="achievement.title">
+        <div class="achievement-details">
+          <h3 class="achievement-title">{{ achievement.title | translate }}</h3>
+          <p class="achievement-text">{{ achievement.description | translate }}</p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
