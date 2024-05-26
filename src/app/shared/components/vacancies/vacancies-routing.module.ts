@@ -1,8 +1,8 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {VacanciesComponent} from "./component/vacancies/vacancies.component";
-import {SearchOverlayComponent} from "./component/search-overlay/search-overlay.component";
-import {PlatformCardComponent} from "./component/platform-card/platform-card.component";
+import {VacanciesComponent} from "./components/vacancies/vacancies.component";
+import {SearchOverlayComponent} from "./components/search-overlay/search-overlay.component";
+import {PlatformCardComponent} from "./components/platform-card/platform-card.component";
 
 const routes: Routes = [
   {

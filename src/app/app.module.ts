@@ -16,6 +16,8 @@ import {TermsModule} from "./pages/terms/terms.module";
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {BlogModule} from "./pages/blog/blog.module";
+import {AnalysisModule} from "./pages/analysis/analysis.module";
+import {NgChartsModule} from 'ng2-charts';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -38,6 +40,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     PrivacyModule,
     TermsModule,
     BlogModule,
+    AnalysisModule,
+    NgChartsModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

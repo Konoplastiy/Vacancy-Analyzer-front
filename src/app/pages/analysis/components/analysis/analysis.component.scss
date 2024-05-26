@@ -1,0 +1,62 @@
+.container {
+  max-width: 1300px;
+
+  .info-block {
+    display: flex;
+    justify-content: space-between;
+    margin: 50px 0;
+
+    .card {
+      width: 350px;
+      display: flex;
+      border: 1px solid #ccc;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+      font-family: Montserrat, sans-serif;
+      transition: transform 0.3s ease;
+
+      .statistic {
+        width: 75%;
+
+        .title {
+          font-size: 18px;
+          font-weight: bold;
+          display: block;
+          margin-bottom: 8px;
+          line-height: 1.5;
+        }
+
+        .value {
+          margin-left: 12px;
+          font-size: 2rem;
+          line-height: 1.25;
+          color: #666;
+          font-weight: 500;
+        }
+      }
+
+      .statistic-img {
+        width: 50px;
+      }
+
+      &:hover {
+        transform: translateY(-5px);
+      }
+    }
+  }
+
+  .chart {
+    font-family: Montserrat, sans-serif;
+    border: 1px solid #ccc;
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    border-radius: 20px;
+    margin: 50px auto;
+
+    .chart-title {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+  }
+}
