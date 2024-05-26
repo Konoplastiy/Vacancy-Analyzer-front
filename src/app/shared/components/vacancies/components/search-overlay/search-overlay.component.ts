@@ -1,4 +1,4 @@
-import {Component, inject} from '@angular/core';
+import {Component} from '@angular/core';
 import {SearchBarService} from "../../../../services/search-bar.service";
 
 @Component({
