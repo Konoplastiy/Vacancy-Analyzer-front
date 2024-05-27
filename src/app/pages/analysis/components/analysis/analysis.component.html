@@ -2,7 +2,7 @@
   <div class="info-block" data-aos="fade-down" data-aos-duration="1000" data-aos-once="true">
     <div class="card" *ngFor="let statistic of topInfo">
       <div class="statistic">
-        <span class="title">{{ statistic.title }}</span>
+        <span class="title">{{ statistic.title | translate }}</span>
         <span class="value">{{ statistic.value }}</span>
       </div>
       <img class="statistic-img" [src]="statistic.photo" alt="statistic">
@@ -10,7 +10,7 @@
   </div>
 
   <div class="chart">
-    <span class="chart-title">Vacancies Distribution</span>
+    <span class="chart-title">{{ 'Vacancies Distribution' | translate }}</span>
     <canvas baseChart
             [options]="barChartOptions"
             [type]="barChartType"
