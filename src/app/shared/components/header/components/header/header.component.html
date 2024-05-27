@@ -43,15 +43,15 @@
           <span class="close-icon" (click)="closeSubscriptionModal()">
             <img class="close-img" src="assets/icons/close.svg" alt="close" height="512" width="512">
           </span>
-          <h2 class="headline">Subscribe</h2>
-          <p class="newsletter-text">Subscribe to our newsletter & stay updated</p>
+          <h2 class="headline">{{ 'Subscribe' | translate }}</h2>
+          <p class="newsletter-text">{{ 'Subscribe-text' | translate }}</p>
           <form class="newsletter-form" [formGroup]="form" (submit)="subscribe()">
             <input class="email-input"
                    type="email"
                    placeholder="Enter your email"
                    formControlName="email"
             >
-            <button class="subscribe-btn" type="submit" [disabled]="!form.valid">Subscribe</button>
+            <button class="subscribe-btn" type="submit" [disabled]="!form.valid">{{ 'Subscribe' | translate }}</button>
             <label class="text-danger" *ngIf="form.get('email')">
               {{
                 getError(form.get('email'))

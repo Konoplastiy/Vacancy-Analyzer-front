@@ -32,8 +32,8 @@ export class AnalysisComponent implements OnInit {
   barChartData: ChartConfiguration['data'] = {
     labels: ['January', 'February', 'March', 'April', 'May'],
     datasets: [
-      { data: [1011, 1103, 1220, 1186, 1234], label: 'Vacancies jobs' }
-    ]
+      { data: [1011, 1103, 1220, 1186, 1234], label: 'Vacancies jobs', backgroundColor: 'rgba(255, 99, 132, 0.7)'}
+    ],
   };
 
   ngOnInit(): void {
