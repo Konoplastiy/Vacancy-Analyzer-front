@@ -5,10 +5,11 @@ import {FormArray, FormBuilder, FormGroup} from "@angular/forms";
 @Component({
   selector: 'app-filter',
   templateUrl: './filter.component.html',
-  styleUrls: ['./filter.component.scss']
+  styleUrls: ['./filter.component.scss'],
 })
 export class FilterComponent implements OnInit {
   filterForm: FormGroup;
+  filtersActive = false;
   platformName = ['ROBOTAUA', 'DJINNI', 'DOU', 'WORKUA'];
   experienceLevels = ['Senior', 'Middle', 'Junior', 'Trainee'];
   workLevels = ['No experience', '1 year', '2 years', '5 years'];
@@ -17,6 +18,9 @@ export class FilterComponent implements OnInit {
 
   ngOnInit(): void {
     this.initializeForm();
+    this.filterForm.valueChanges.subscribe(_ => {
+      this.checkForActiveFilters();
+    });
   }
 
   initializeForm() {
@@ -29,7 +33,17 @@ export class FilterComponent implements OnInit {
       }),
       work: new FormArray(this.workLevels.map(() => this.fb.control(false)))
     });
-    console.log(this.filterForm)
+  }
+
+  toggleFilters() {
+    if (this.filtersActive) {
+      this.resetFilters();
+    }
+  }
+
+  resetFilters() {
+    this.filterForm.reset();
+    this.filtersActive = false;
   }
 
   applyFilters() {
@@ -41,5 +55,15 @@ export class FilterComponent implements OnInit {
       salaryTo: filterData.salary.to ? parseInt(filterData.salary.to) : undefined,
       work: filterData.work.map((checked, index) => checked ? this.workLevels[index] : null).filter(value => value !== null)
     });
+  }
+
+  checkForActiveFilters() {
+    const isActive = this.filterForm.value.platformName.some(value => value) ||
+      this.filterForm.value.experienceLevel.some(value => value) ||
+      this.filterForm.value.work.some(value => value) ||
+      this.filterForm.get('salary.from').value ||
+      this.filterForm.get('salary.to').value;
+
+    this.filtersActive = isActive;
   }
 }
