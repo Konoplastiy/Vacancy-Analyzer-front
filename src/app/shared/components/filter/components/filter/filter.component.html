@@ -1,8 +1,13 @@
 <div class="container">
   <div class="filter-title">
-    <img class="filter-image" src="assets/icons/filter.svg" alt="filter">
+    <div class="hamburger" [ngClass]="{'change': filtersActive}" (click)="toggleFilters()">
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+    </div>
     <h3 class="title" translate>{{ 'FILTERS' | translate }}</h3>
   </div>
+
   <form class="filter-form" [formGroup]="filterForm" (ngSubmit)="applyFilters()">
     <div class="conditional" formArrayName="platformName">
       <h3 class="sub-title">{{ 'Platform' | translate }}</h3>
