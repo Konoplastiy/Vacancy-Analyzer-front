@@ -22,9 +22,9 @@ $border-color: #e1e4e7;
       cursor: pointer;
       display: inline-block;
       position: relative;
-      width: 30px;
+      width: 27px;
       height: 20px;
-      margin-right: 10px;
+      margin-right: 8px;
 
       div {
         width: 100%;
@@ -35,15 +35,15 @@ $border-color: #e1e4e7;
         transform-origin: center;
 
         &:nth-child(1) { top: 0px; }
-        &:nth-child(2) { top: 10px; }
-        &:nth-child(3) { top: 22px; }
+        &:nth-child(2) { top: 8px; }
+        &:nth-child(3) { top: 16px; }
       }
 
       &.change {
         div {
           background-color: #d9534f;
           &:nth-child(1) {
-            transform: translateY(11px) rotate(45deg) scale(1.2);
+            transform: translateY(8px) rotate(45deg) scale(1.2);
           }
 
           &:nth-child(2) {
@@ -51,11 +51,12 @@ $border-color: #e1e4e7;
           }
 
           &:nth-child(3) {
-            transform: translateY(-11px) rotate(-45deg) scale(1.2);
+            transform: translateY(-8px) rotate(-45deg) scale(1.2);
           }
         }
       }
     }
+
 
     .title {
       font-size: 22px;
