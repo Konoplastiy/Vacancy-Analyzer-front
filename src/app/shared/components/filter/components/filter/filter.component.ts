@@ -18,19 +18,14 @@ export class FilterComponent implements OnInit {
 
   ngOnInit(): void {
     this.initializeForm();
-    this.filterForm.valueChanges.subscribe(_ => {
-      this.checkForActiveFilters();
-    });
+    this.subscribeToFormChanges();
   }
 
   initializeForm() {
     this.filterForm = this.fb.group({
       platformName: new FormArray(this.platformName.map(() => this.fb.control(false))),
       experienceLevel: new FormArray(this.experienceLevels.map(() => this.fb.control(false))),
-      salary: this.fb.group({
-        from: '',
-        to: ''
-      }),
+      salary: this.fb.group({from: '', to: ''}),
       work: new FormArray(this.workLevels.map(() => this.fb.control(false)))
     });
   }
@@ -44,7 +39,15 @@ export class FilterComponent implements OnInit {
   resetFilters() {
     this.filterForm.reset();
     this.filtersActive = false;
+    this.applyFilters();
   }
+
+  subscribeToFormChanges() {
+    this.filterForm.valueChanges.subscribe(_ => {
+      this.checkForActiveFilters();
+    });
+  }
+
 
   applyFilters() {
     const filterData = this.filterForm.value;
