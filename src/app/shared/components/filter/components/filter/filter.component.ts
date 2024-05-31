@@ -14,8 +14,7 @@ export class FilterComponent implements OnInit {
   experienceLevels = ['Senior', 'Middle', 'Junior', 'Trainee'];
   workLevels = ['No experience', '1 year', '2 years', '5 years'];
 
-  constructor(private fb: FormBuilder, private filterService: FilterService) {
-  }
+  constructor(private fb: FormBuilder, private filterService: FilterService) {}
 
   ngOnInit(): void {
     this.initializeForm();
@@ -48,6 +47,7 @@ export class FilterComponent implements OnInit {
       this.checkForActiveFilters();
     });
   }
+
 
   applyFilters() {
     const filterData = this.filterForm.value;
